@@ -1,0 +1,36 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# build output
+dist
+build
+.vite
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor / os
+.DS_Store
+.idea
+.vscode
+*.local
+
+# env
+.env
+.env.*
+!.env.example
+
+# vercel
+.vercel
+
+# source / reference originals (kept local; deployed assets live in public/)
+/_source/
+
+# local working docs (kept out of the public repo)
+/CLAUDE.md
+/docs/

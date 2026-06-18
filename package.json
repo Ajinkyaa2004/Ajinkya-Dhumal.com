@@ -1,0 +1,38 @@
+{
+  "name": "ajinkyadhumal-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ajinkya Dhumal — multi-route portfolio (Engineer | PM | Freelance)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@lottiefiles/dotlottie-react": "^0.18.7",
+    "framer-motion": "^12.23.0",
+    "gsap": "^3.13.0",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.542.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-router-dom": "^7.6.0",
+    "split-type": "^0.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "vite": "^7.0.0"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+  }
+}
