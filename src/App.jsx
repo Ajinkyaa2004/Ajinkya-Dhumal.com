@@ -7,9 +7,13 @@ import { motion } from "framer-motion";
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
 import SplashScreen from "./components/shared/SplashScreen";
+import NotFound from "./pages/NotFound";
 import CursorFollower from "./components/shared/CursorFollower";
+import CommandPalette from "./components/shared/CommandPalette";
+import AskAjinkya from "./components/shared/AskAjinkya";
 import LoadingLottie from "./components/shared/LoadingLottie";
 import LoadingOverlay from "./components/shared/LoadingOverlay";
+import { Analytics } from "@vercel/analytics/react";
 import { gsap, ScrollTrigger, useGSAP } from "./lib/gsap";
 import { detectLowPerf, prefersReducedMotion } from "./lib/perf";
 
@@ -104,6 +108,7 @@ export default function App() {
   return (
     <div ref={rootRef} data-route={activeKey} className="font-sans min-h-screen relative overflow-hidden bg-[#050505] text-slate-200 selection:bg-indigo-500/30 selection:text-white">
       <div className="fixed inset-0 z-0 pointer-events-none opacity-20 noise-texture" />
+      <Analytics />
 
       {showSplash ? (
         <SplashScreen onFinish={finishSplash} />
@@ -111,6 +116,8 @@ export default function App() {
         <>
           <Navbar />
           <CursorFollower />
+          <CommandPalette />
+          <AskAjinkya />
           <LoadingOverlay show={navLoading} />
           <ScrollToTop />
 
@@ -133,7 +140,7 @@ export default function App() {
                   <Route path="/engineer" element={<EngineerPage />} />
                   <Route path="/pm" element={<PMPage />} />
                   <Route path="/freelance" element={<FreelancePage />} />
-                  <Route path="*" element={<HomePage />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </motion.div>
             </Suspense>

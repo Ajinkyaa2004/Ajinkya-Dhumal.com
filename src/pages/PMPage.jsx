@@ -5,6 +5,7 @@ import Seo from "../components/shared/Seo";
 import PMHero from "../components/pm/PMHero";
 import CaseStudyGrid from "../components/pm/CaseStudyGrid";
 import ProductThinking from "../components/pm/ProductThinking";
+import BeThePM from "../components/pm/BeThePM";
 import WhyPM from "../components/pm/WhyPM";
 import PMAnalyticsPanel from "../components/pm/PMAnalyticsPanel";
 import SharedBottom from "../components/shared/SharedBottom";
@@ -40,6 +41,7 @@ const PMPage = () => (
     <CaseStudyGrid />
     <AnalyticsBand />
     <ProductThinking />
+    <BeThePM />
     <WhyPM />
     <SharedBottom />
   </>

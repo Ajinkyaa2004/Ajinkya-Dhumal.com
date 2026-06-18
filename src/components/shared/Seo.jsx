@@ -53,9 +53,18 @@ const setJsonLd = (obj) => {
   el.textContent = JSON.stringify(obj);
 };
 
-const Seo = ({ title, description, path = "/", image = `${SITE}/og-image.png`, jsonLd }) => {
+// Per-route share images (generated in public/). Falls back to the default.
+const OG_BY_PATH = {
+  "/": "og-home.png",
+  "/engineer": "og-engineer.png",
+  "/pm": "og-pm.png",
+  "/freelance": "og-freelance.png",
+};
+
+const Seo = ({ title, description, path = "/", image, jsonLd }) => {
   useEffect(() => {
     const url = `${SITE}${path}`;
+    const ogImage = image || `${SITE}/${OG_BY_PATH[path] || "og-image.png"}`;
     if (title) {
       document.title = title;
       setProp("og:title", title);
@@ -68,8 +77,8 @@ const Seo = ({ title, description, path = "/", image = `${SITE}/og-image.png`, j
     }
     setProp("og:url", url);
     setNamed("twitter:url", url);
-    setProp("og:image", image);
-    setNamed("twitter:image", image);
+    setProp("og:image", ogImage);
+    setNamed("twitter:image", ogImage);
     setCanonical(url);
     setJsonLd(jsonLd);
     // path identifies the route; copy is route-bound, so this is the right key.

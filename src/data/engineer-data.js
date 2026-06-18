@@ -112,7 +112,15 @@ export const INTERESTS = [
   { label: "Product Operations", Icon: FaHandshake },
 ];
 
-export const WORKED_WITH = ["Hudl", "Insight Fusion Analytics", "Godrej Properties", "Max Extrusions", "Wasro"];
+// `logo` is a path under public/ (e.g. "/logos/hudl.svg"); while null, a styled
+// wordmark is shown. Drop logo files in public/logos/ and set the paths here.
+export const WORKED_WITH = [
+  { name: "Hudl", logo: null },
+  { name: "Insight Fusion Analytics", logo: null },
+  { name: "Godrej Properties", logo: null },
+  { name: "Max Extrusions", logo: null },
+  { name: "Wasro", logo: null },
+];
 
 export const SKILL_CATEGORIES = [
   {

@@ -84,19 +84,6 @@ export const PROCESS = [
   { step: "04", title: "Launch", desc: "Deploy, test, and hand off — with the support you need to grow after go-live." },
 ];
 
-// TODO: Replace with real, attributable client quotes before launch.
-// Slider handles 0, 1, or many entries gracefully.
-export const TESTIMONIALS = [
-  {
-    quote: "Ajinkya understood our business goals first, then built exactly what we needed — clean, fast, and on time.",
-    name: "Project Lead",
-    role: "Godrej Properties engagement",
-    placeholder: true,
-  },
-  {
-    quote: "Reliable, communicative, and genuinely cares about the outcome. Our catalog site has never performed better.",
-    name: "Client",
-    role: "Max Extrusions engagement",
-    placeholder: true,
-  },
-];
+// Add real, attributable client quotes here (quote / name / role). While this
+// is empty the slider hides itself — no placeholder or fabricated testimonials.
+export const TESTIMONIALS = [];

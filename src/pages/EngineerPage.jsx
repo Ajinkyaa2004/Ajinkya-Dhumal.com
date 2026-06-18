@@ -9,6 +9,7 @@ import CurrentRoles from "../components/engineer/CurrentRoles";
 import WorkedWith from "../components/engineer/WorkedWith";
 import ProjectsGallery from "../components/engineer/ProjectsGallery";
 import SkillsGrid from "../components/engineer/SkillsGrid";
+import GitHubActivity from "../components/engineer/GitHubActivity";
 import SharedBottom from "../components/shared/SharedBottom";
 import { INTERESTS } from "../data/engineer-data";
 
@@ -68,6 +69,7 @@ const EngineerPage = () => (
     <WorkedWith />
     <ProjectsGallery />
     <SkillsGrid />
+    <GitHubActivity />
     <InterestedIn />
     <SharedBottom />
   </>
