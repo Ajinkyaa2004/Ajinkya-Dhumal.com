@@ -4,12 +4,33 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaStar, FaCodeBranch } from "react-icons/fa";
+import { FaGithub, FaStar, FaCodeBranch, FaCode, FaFutbol, FaComments, FaChartLine, FaMicrophone, FaCompass } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 import { Reveal, SectionHeader } from "../shared/AnimationUtils";
 import { CONTACT } from "../../data/shared-data";
 
 const GH_USER = "Ajinkyaa2004";
+
+// Featured repos to surface (exact GitHub names), in display order.
+const PINNED = ["Copascore-AI", "Web-Chat", "BackTesting-Engine", "NexPrep", "Business-Compass"];
+
+// Light descriptions for repos whose GitHub description is empty/weak.
+const DESC_OVERRIDE = {
+  "business-compass": "A business strategy & analytics explorer — turning raw numbers into clear, data-driven direction.",
+};
+
+// A distinct, on-theme background watermark per featured repo.
+const REPO_ICON = {
+  "copascore-ai": FaFutbol,
+  "web-chat": FaComments,
+  "backtesting-engine": FaChartLine,
+  "nexprep": FaMicrophone,
+  "business-compass": FaCompass,
+};
+const RepoWatermark = ({ name }) => {
+  const Icon = REPO_ICON[name.toLowerCase()] || FaCode;
+  return <Icon />;
+};
 
 const LANG_COLOR = {
   JavaScript: "#f1e05a", TypeScript: "#3178c6", Python: "#3572A5", HTML: "#e34c26",
@@ -30,13 +51,12 @@ const GitHubActivity = () => {
 
   useEffect(() => {
     const ctrl = new AbortController();
-    fetch(`https://api.github.com/users/${GH_USER}/repos?sort=pushed&per_page=12`, { signal: ctrl.signal })
+    fetch(`https://api.github.com/users/${GH_USER}/repos?sort=pushed&per_page=100`, { signal: ctrl.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((data) => {
-        const top = (Array.isArray(data) ? data : [])
-          .filter((r) => !r.fork)
-          .slice(0, 6);
-        setRepos(top);
+        const byName = new Map((Array.isArray(data) ? data : []).map((r) => [r.name.toLowerCase(), r]));
+        const picked = PINNED.map((n) => byName.get(n.toLowerCase())).filter(Boolean);
+        setRepos(picked);
       })
       .catch((e) => {
         if (e?.name !== "AbortError") {
@@ -57,7 +77,7 @@ const GitHubActivity = () => {
             eyebrow="Building in public"
             title="Live from"
             highlight="GitHub."
-            subtitle="My most recently pushed repositories — pulled live, not a screenshot."
+            subtitle="A few projects I'm proud of — live stats pulled straight from GitHub, not a screenshot."
             line="from-slate-300 via-slate-400 to-slate-500"
             eyebrowGrad="from-slate-300 to-slate-400"
             highlightGrad="from-slate-200 via-slate-300 to-slate-400"
@@ -93,23 +113,28 @@ const GitHubActivity = () => {
             {repos.map((r, i) => (
               <Reveal key={r.id} idx={i}>
                 <a href={r.html_url} target="_blank" rel="noreferrer" className="block h-full">
-                  <div className="h-full glass-panel rounded-3xl p-6 border border-white/10 hover:border-white/25 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col">
-                    <div className="flex items-center justify-between mb-3">
-                      <FaGithub className="text-white/50 group-hover:text-white transition-colors" />
-                      <MdArrowOutward className="text-white/30 group-hover:text-white group-hover:rotate-45 transition-all" />
+                  <div className="h-full glass-panel rounded-3xl p-6 border border-white/10 hover:border-white/25 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col relative overflow-hidden">
+                    <div className="absolute -bottom-7 -right-6 text-[8.5rem] text-white opacity-[0.025] group-hover:opacity-[0.05] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none z-0">
+                      <RepoWatermark name={r.name} />
                     </div>
-                    <h4 className="font-bold text-white text-[15px] mb-1.5 truncate">{r.name}</h4>
-                    <p className="text-white/45 text-xs leading-relaxed mb-4 line-clamp-2 flex-grow">{r.description || "No description."}</p>
-                    <div className="flex items-center gap-4 text-[11px] text-white/40 font-mono">
-                      {r.language && (
-                        <span className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full" style={{ background: LANG_COLOR[r.language] || "#8b949e" }} />
-                          {r.language}
-                        </span>
-                      )}
-                      {r.stargazers_count > 0 && <span className="flex items-center gap-1"><FaStar /> {r.stargazers_count}</span>}
-                      {r.forks_count > 0 && <span className="flex items-center gap-1"><FaCodeBranch /> {r.forks_count}</span>}
-                      <span className="ml-auto">{timeAgo(r.pushed_at)}</span>
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex items-center justify-between mb-3">
+                        <FaGithub className="text-white/50 group-hover:text-white transition-colors" />
+                        <MdArrowOutward className="text-white/30 group-hover:text-white group-hover:rotate-45 transition-all" />
+                      </div>
+                      <h4 className="font-bold text-white text-[15px] mb-1.5 truncate">{r.name}</h4>
+                      <p className="text-white/45 text-xs leading-relaxed mb-4 line-clamp-2 flex-grow">{DESC_OVERRIDE[r.name.toLowerCase()] || r.description || "No description."}</p>
+                      <div className="flex items-center gap-4 text-[11px] text-white/40 font-mono">
+                        {r.language && (
+                          <span className="flex items-center gap-1.5">
+                            <span className="w-2.5 h-2.5 rounded-full" style={{ background: LANG_COLOR[r.language] || "#8b949e" }} />
+                            {r.language}
+                          </span>
+                        )}
+                        {r.stargazers_count > 0 && <span className="flex items-center gap-1"><FaStar /> {r.stargazers_count}</span>}
+                        {r.forks_count > 0 && <span className="flex items-center gap-1"><FaCodeBranch /> {r.forks_count}</span>}
+                        <span className="ml-auto">{timeAgo(r.pushed_at)}</span>
+                      </div>
                     </div>
                   </div>
                 </a>

@@ -8,6 +8,10 @@ import {
   FaEnvelope,
   FaJava,
   FaPaintBrush,
+  FaLaptopCode,
+  FaLightbulb,
+  FaHandsHelping,
+  FaUsers,
 } from "react-icons/fa";
 import { SiCoursera, SiGoogleanalytics } from "react-icons/si";
 import {
@@ -114,10 +118,10 @@ export const CERTIFICATIONS = [
 ];
 
 export const ACHIEVEMENTS = [
-  { title: "Dizzy Hackers Hackathon", detail: "Led JUJUTSU CODERS to Top 5 among 60+ teams with a Decentralized Identity project.", badge: "Top 5 Finalist", link: "https://github.com/Ajinkyaa2004/ZenID-JUJUTSU-CODERS" },
-  { title: "World Innovation Expo 2023", detail: "Vehicle Maintenance Index project ranked in Top 70 of 500+ entries.", badge: "Top 70 / 500", link: "https://drive.google.com/file/d/1aLjq3xezLE919ivxbxycRqn4CCuJr4zi/view?usp=sharing" },
-  { title: "PAC HACK Volunteer", detail: "Coordinated and supported 200+ participants at national-level hackathon.", badge: "Volunteer", link: "#" },
-  { title: "Final Year Project Lead", detail: "MediaMind-ML-360 Platform – leading a 3-member engineering team.", badge: "Team Lead", link: "https://github.com/Ajinkyaa2004/MediaMind-ML-360" },
+  { title: "Dizzy Hackers Hackathon", detail: "Led JUJUTSU CODERS to Top 5 among 60+ teams with a Decentralized Identity project.", badge: "Top 5 Finalist", Icon: FaLaptopCode, link: "https://github.com/Ajinkyaa2004/ZenID-JUJUTSU-CODERS" },
+  { title: "World Innovation Expo 2023", detail: "Vehicle Maintenance Index project ranked in Top 70 of 500+ entries.", badge: "Top 70 / 500", Icon: FaLightbulb, link: "https://drive.google.com/file/d/1aLjq3xezLE919ivxbxycRqn4CCuJr4zi/view?usp=sharing" },
+  { title: "PAC HACK Volunteer", detail: "Coordinated and supported 200+ participants at national-level hackathon.", badge: "Volunteer", Icon: FaHandsHelping, link: "#" },
+  { title: "Final Year Project Lead", detail: "MediaMind-ML-360 Platform – leading a 3-member engineering team.", badge: "Team Lead", Icon: FaUsers, link: "https://github.com/Ajinkyaa2004/MediaMind-ML-360" },
 ];
 
 // Experience + education timeline (newest first). isWork toggles icon + accent.

@@ -19,6 +19,7 @@ import {
   FaBuilding,
   FaUserTie,
   FaIndustry,
+  FaPumpSoap,
 } from "react-icons/fa";
 import {
   SiReact,
@@ -185,7 +186,7 @@ export const FEATURED_PROJECTS = [
     tech: [{ Icon: SiNextdotjs, color: "text-white" }, { Icon: SiReact, color: "text-[#61DAFB]" }, { Icon: SiFirebase, color: "text-[#FFCA28]" }, { Icon: SiMongodb, color: "text-[#47A248]" }],
     bgIcon: FaRobot,
     caseStudy: "/projects/nexprep",
-    demo: "https://nexprep-ai.vercel.app/",
+    demo: "https://nex-prep-ai.vercel.app/auth/sign-in",
     theme: "hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] glow-blue",
     textGlow: "group-hover:text-blue-400",
   },
@@ -246,5 +247,16 @@ export const CLIENT_PROJECTS = [
     demo: "https://www.godrejreserve.org.in/",
     theme: "hover:border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] glow-purple",
     textGlow: "group-hover:text-purple-400",
+  },
+  {
+    title: "Wasro",
+    tag: "Brand Website",
+    desc: "Official brand site for Wasro — a value-tier home-care FMCG range (detergent powders, dishwash bars & tubs). A clean, fast, conversion-minded product showcase.",
+    tech: [{ Icon: SiNextdotjs, color: "text-white" }, { Icon: SiReact, color: "text-[#61DAFB]" }, { Icon: SiTypescript, color: "text-[#3178C6]" }, { Icon: SiTailwindcss, color: "text-[#38B2AC]" }],
+    bgIcon: FaPumpSoap,
+    caseStudy: "https://github.com/Ajinkyaa2004/Wasro-Detergent-Brand",
+    demo: "https://wasro.vercel.app/",
+    theme: "hover:border-emerald-500/50 hover:shadow-[0_0_30px_rgba(16,185,129,0.15)] glow-emerald",
+    textGlow: "group-hover:text-emerald-400",
   },
 ];

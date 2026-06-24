@@ -121,3 +121,162 @@ export const WHY_PM = [
   "The 16 case studies and the IBM Product Management certification are where I pressure-tested product instinct against real business problems — pricing, unit economics, growth — the questions a PM lives inside every day.",
   "The 2–4 year plan is simple: keep shipping as an engineer who thinks like a PM, until the title just catches up with the work.",
 ];
+
+// One-line POV per case study — shown on each grid card so the grid reads as
+// answers, not just questions. DRAFTS grounded in public product strategy —
+// review/edit to match your Notion analysis before sharing with recruiters.
+export const STUDY_TAKES = {
+  Netflix: "Hold premium as the brand anchor; scale the ad tier as an acquisition + emerging-markets engine, not a discount.",
+  Spotify: "Freemium is the funnel, not the flaw — gate the features power users crave, keep free as the growth loop.",
+  Apple: "Don't cut the sticker price; localize financing + trade-ins so the SE feels accessible without diluting the brand.",
+  "Amazon Prime": "The bundle is the moat — price Prime as a whole; never let members price the parts.",
+  "Disney+ Hotstar": "Sports buys reach, not margin — use it to acquire, then monetize with ads + tiered cricket access.",
+  Tesla: "Win India on total cost + local assembly, not sticker price — a premium halo first, then a locally-made mass model.",
+  "Swiggy One": "Keep it a loss leader only while it lifts frequency + basket size; once the habit forms, swap discounts for convenience.",
+  Uber: "Profit comes from density + Eats/ads, not driver-pay cuts — protect supply, monetize the network.",
+  Zomato: "Fix economics on the restaurant side (ads, supply tools), not just commissions — raise take-rate without partner churn.",
+  OYO: "Go asset-light to scale, asset-heavy only in a few flagship markets where quality control is the real differentiator.",
+  "BYJU'S": "Acquisitions bought reach but broke the model — fix retention + CAC payback before buying more growth.",
+  "Starbucks India": "Defend margin with smaller-format stores + a localized menu in tier-2 — premium experience, lower rent.",
+  Flipkart: "Big Billion Days buys GMV, not loyalty — move spend from blanket discounts to retention + private labels.",
+  Paytm: "Pick a wedge — payments for reach, lending for margin; don't fund three super-apps at once.",
+  "Reliance Jio": "The moat is the bundle + data — cross-sell telecom → OTT → commerce on one identity, and monetize attention.",
+  "Tata Neu": "The super-app stumbled because the apps weren't stitched — lead with one daily habit, then earn the rest.",
+};
+
+// 5 featured teardowns (2 revenue · 2 unit-economics · 1 growth) shown with full
+// depth ON the page, so a recruiter sees the thinking without leaving for Notion.
+// The book auto-sizes to however many entries live here. DRAFTS — review/edit.
+export const FEATURED_TEARDOWNS = [
+  {
+    company: "Netflix",
+    theme: "Revenue & Pricing",
+    accentText: "text-blue-300",
+    accentGrad: "from-blue-500 to-sky-500",
+    chip: "bg-blue-500/10 text-blue-300 border-blue-500/30",
+    question: "Should Netflix double down on ad-supported plans or premium pricing?",
+    framework: "Tier laddering × LTV-by-segment",
+    insights: [
+      "Premium subscribers are the high-LTV brand core; the ad tier's job is reach and a cheaper door in — not matching premium ARPU.",
+      "Ad-tier ARPU can rival premium once ad load and fill rates mature, but only at scale — so the early goal is volume, not margin.",
+      "The password-sharing crackdown already converts free-riders; the ad tier catches the price-sensitive ones who'd otherwise churn.",
+    ],
+    recommendation: "Run both, with clear roles: premium as the anchor and status tier, ads as the acquisition + emerging-markets growth engine. Don't discount premium to chase ad volume.",
+    metric: "Blended ARPU × retention — not subscriber count alone.",
+    link: "https://www.notion.so/Netflix-27e5b325b2ae80d989b1dd9d93874f3?source=copy_link",
+  },
+  {
+    company: "Spotify",
+    theme: "Revenue & Pricing",
+    accentText: "text-blue-300",
+    accentGrad: "from-blue-500 to-sky-500",
+    chip: "bg-blue-500/10 text-blue-300 border-blue-500/30",
+    question: "Is freemium sustainable, or should it shift to subscription-first?",
+    framework: "Freemium funnel × free→paid conversion",
+    insights: [
+      "The free tier is Spotify's cheapest acquisition channel — most Premium subscribers start as free users, so killing free would spike CAC, not fix margin.",
+      "The margin problem isn't free listeners, it's label royalties (~70% of revenue) — profitability comes from higher-margin non-music (podcasts, audiobooks, ads), not from removing free.",
+      "Ad-supported free monetizes the unconverted and seeds conversion over time; the real lever is gating what power users crave — offline, ad-free, higher bitrate.",
+    ],
+    recommendation: "Keep freemium as the growth loop — it's the top of the funnel, not the leak. Defend margin by scaling high-margin non-music and tightening the feature gate that drives free→Premium conversion.",
+    metric: "Free→Premium conversion rate × contribution margin per user.",
+    link: "https://www.notion.so/Spotify-2825b325b2ae8062911ad243ebedfd28?source=copy_link",
+  },
+  {
+    company: "Uber",
+    theme: "Unit Economics",
+    accentText: "text-emerald-300",
+    accentGrad: "from-emerald-500 to-green-500",
+    chip: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    question: "Can ride-hailing ever be profitable without heavy discounts?",
+    framework: "Contribution margin per trip × network density",
+    insights: [
+      "Discounts buy GMV but train price-sensitive demand; the durable lever is density — shorter pickups mean higher driver utilization.",
+      "Rides alone are thin. Eats, ads, and Uber One are where contribution margin actually compounds.",
+      "Cutting driver pay looks good on a spreadsheet, but it erodes supply reliability — the cost resurfaces as churn and surge.",
+    ],
+    recommendation: "Stop subsidizing demand. Invest in density and high-margin adjacencies (ads, Eats, membership), and protect supply rather than squeeze it.",
+    metric: "Contribution margin per trip, trending positive as density rises.",
+    link: "https://www.notion.so/Uber-2a35b325b2ae806990f2c7615e8bc1db?source=copy_link",
+  },
+  {
+    company: "Zomato",
+    theme: "Unit Economics",
+    accentText: "text-emerald-300",
+    accentGrad: "from-emerald-500 to-green-500",
+    chip: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
+    question: "Balancing food-delivery commissions with restaurant partnerships.",
+    framework: "Per-order contribution × take-rate vs. partner churn",
+    insights: [
+      "Raising commissions lifts take-rate today but drives restaurant churn and off-platform leakage (direct ordering, ONDC) — the partner base is the real supply moat.",
+      "The higher-margin lever is restaurants paying for visibility (ads) and supply tools, not a bigger cut of every order.",
+      "Delivery cost per order falls with batching and density, so profitability is as much a logistics + frequency problem as a commission one.",
+    ],
+    recommendation: "Hold headline commissions; grow the high-margin restaurant-ads + supply-tools business and lift order density and AOV. Raise effective take-rate through value, not hikes that churn partners.",
+    metric: "Contribution margin per order, with restaurant retention holding flat.",
+    link: "https://www.notion.so/Zomato-2a35b325b2ae80228333ca9ee2f05541?source=copy_link",
+  },
+  {
+    company: "Reliance Jio",
+    theme: "Growth & Expansion",
+    accentText: "text-amber-300",
+    accentGrad: "from-amber-500 to-orange-500",
+    chip: "bg-amber-500/10 text-amber-300 border-amber-500/30",
+    question: "How bundling telecom + OTT + e-commerce creates a moat.",
+    framework: "Platform bundling × cross-sell on one identity",
+    insights: [
+      "Cheap data is the acquisition wedge; the moat is what you cross-sell on top — JioCinema, JioMart, payments.",
+      "One identity across services lowers CAC for every new vertical — the telecom base subsidizes commerce acquisition.",
+      "Attention and transaction data become the real product; ads and commerce monetize what telecom alone can't.",
+    ],
+    recommendation: "Treat telecom as the loss-leading top of funnel, then monetize through bundled OTT + commerce + ads on the shared identity.",
+    metric: "ARPU per identity across services — not per SIM.",
+    link: "https://www.notion.so/Reliance-Jio-2dd5b325b2ae804e8204db49cd2c6c2c?source=copy_link",
+  },
+];
+
+// A real PM deliverable — a one-page PRD for NexPrep AI (a product Ajinkya
+// shipped). DRAFT grounded in real facts (20-user survey, Vapi voice, ATS
+// scoring); North Star + targets are illustrative, not live figures. Edit freely.
+export const NEXPREP_PRD = {
+  product: "NexPrep AI",
+  tagline: "AI mock-interview platform",
+  demo: "https://nex-prep-ai.vercel.app/auth/sign-in",
+  repo: "https://github.com/Ajinkyaa2004/NexPrep",
+  oneLiner:
+    "Realistic, voice-based interview practice with instant, structured feedback — so candidates walk into the real thing prepared, not anxious.",
+  northStar: "Weekly completed mock interviews per active user",
+  northStarWhy: "It rewards real practice, not sign-ups.",
+  overview: [
+    {
+      label: "Problem",
+      body: "Most candidates “practice” by reading questions, not by doing interviews out loud — so there's no low-stakes way to rehearse and learn what actually landed. I validated this by surveying 20 job-seekers before writing a line of code; the recurring pain was “I freeze and ramble, and I never know if my answer was any good.”",
+    },
+    {
+      label: "Target user",
+      body: "Early-career candidates and students prepping for technical + behavioral interviews who want realistic reps and honest feedback — not another static question bank.",
+    },
+    {
+      label: "Goal & North Star",
+      body: "Get candidates to do enough realistic reps that they genuinely feel ready. North Star metric: weekly completed mock interviews per active user — it rewards real practice, not sign-ups.",
+    },
+  ],
+  features: [
+    { p: "P0", title: "Voice mock interviews", body: "Answer out loud in real time (voice via Vapi) — the rep that actually transfers to a live interview." },
+    { p: "P0", title: "Instant structured feedback", body: "After each answer: clarity, relevance, and structure — specific, not “good job.”" },
+    { p: "P1", title: "ATS resume scoring", body: "See how a resume reads to an applicant-tracking system — a strong standalone hook for acquisition." },
+    { p: "P1", title: "Role & topic targeting", body: "Pick the role so questions and feedback match the job you're actually chasing." },
+  ],
+  metrics: [
+    "Activation — % of new users who complete their first mock in session one",
+    "Engagement — completed mocks per active user per week (the North Star)",
+    "Quality — feedback-helpfulness rating + self-reported “felt more prepared”",
+    "Retention — return within 7 days for another session",
+  ],
+  risks: [
+    { risk: "LLM feedback feels generic", fix: "Constrain with per-question rubrics + structured prompts; let users rate feedback to tune it." },
+    { risk: "Voice friction (mic, latency)", fix: "Mic pre-flight check plus a text fallback so no one is blocked." },
+    { risk: "Empty first session (cold start)", fix: "Guided first interview with a recommended role, so value lands in minute one." },
+  ],
+  note: "Drafted as a portfolio artifact — the North Star and targets show how I'd run the product, not live figures.",
+};

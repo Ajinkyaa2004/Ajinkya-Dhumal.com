@@ -17,7 +17,7 @@ Ajinkya Dhumal's personal portfolio — **one site, four routes**, each tuned to
 - **Framer Motion** — component interactions, tilt/magnetic, page transitions
 - **Lottie** (`lottie-react`, `@lottiefiles/dotlottie-react`) — hero illustrations + loading state
 - **React Router 7**
-- **Anthropic API** (`@anthropic-ai/sdk`) — the "Ask Ajinkya" AI assistant, served by a Vercel serverless function (`api/chat.js`)
+- **Groq API** — the "Ask Ajinkya" AI assistant (`llama-3.3-70b-versatile`), served by a Vercel serverless function (`api/chat.js`)
 
 ## Getting started
 
@@ -37,7 +37,7 @@ tailwind.config.js
 vercel.json              # SPA rewrites (excludes /api)
 
 api/                     # Vercel serverless functions
-  chat.js                # "Ask Ajinkya" assistant (Anthropic Messages API)
+  chat.js                # "Ask Ajinkya" assistant (Groq chat completions)
   _knowledge.js          # grounding knowledge base (not a route — leading "_")
 
 src/
@@ -71,14 +71,14 @@ auto-detects the `api/` folder as serverless functions.
 
 | Variable | Required | Purpose |
 |----------|----------|---------|
-| `ANTHROPIC_API_KEY` | For the AI assistant only | Powers the "Ask Ajinkya" chat (`api/chat.js`). Get one at [console.anthropic.com](https://console.anthropic.com). |
+| `GROQ_API_KEY` | For the AI assistant only | Powers the "Ask Ajinkya" chat (`api/chat.js`). Get one at [console.groq.com](https://console.groq.com). |
 
 The assistant **degrades gracefully**: with no key set, `api/chat.js` returns a friendly
 fallback (pointing visitors to email/links) instead of erroring, so the widget never looks
 broken. Add the key whenever you want live answers, then redeploy. The model is set at the
-top of `api/chat.js` (`claude-opus-4-8`) — switch to e.g. `claude-haiku-4-5` for lower
-cost/latency on a public endpoint. The endpoint is unauthenticated; monitor usage in the
-Anthropic console.
+top of `api/chat.js` (`llama-3.3-70b-versatile`) — switch to e.g. `llama-3.1-8b-instant` for
+lower latency on a public endpoint. The endpoint is unauthenticated; monitor usage in the
+Groq console.
 
 > The key is a server-side secret — it lives only in Vercel's env settings, never in the repo
 > (`.env*` is gitignored). See `.env.example`.

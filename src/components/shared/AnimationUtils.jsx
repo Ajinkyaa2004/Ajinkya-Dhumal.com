@@ -69,6 +69,9 @@ export const useTilt = (maxDeg = 7) => {
     const r = e.currentTarget.getBoundingClientRect();
     rx.set(((e.clientY - r.top) / r.height - 0.5) * -2 * maxDeg);
     ry.set(((e.clientX - r.left) / r.width - 0.5) * 2 * maxDeg);
+    // Track cursor position for an optional glare overlay (reads var(--gx/--gy)).
+    e.currentTarget.style.setProperty("--gx", `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty("--gy", `${e.clientY - r.top}px`);
   };
   const onMouseLeave = () => {
     rx.set(0);

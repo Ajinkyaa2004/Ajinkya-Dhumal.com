@@ -10,7 +10,7 @@ import SplashScreen from "./components/shared/SplashScreen";
 import NotFound from "./pages/NotFound";
 import CursorFollower from "./components/shared/CursorFollower";
 import CommandPalette from "./components/shared/CommandPalette";
-import AskAjinkya from "./components/shared/AskAjinkya";
+import Aira from "./components/shared/Aira";
 import LoadingLottie from "./components/shared/LoadingLottie";
 import LoadingOverlay from "./components/shared/LoadingOverlay";
 import { Analytics } from "@vercel/analytics/react";
@@ -71,7 +71,7 @@ export default function App() {
     }
     if (prefersReducedMotion()) return;
     setNavLoading(true);
-    const t = setTimeout(() => setNavLoading(false), 1100);
+    const t = setTimeout(() => setNavLoading(false), 1700);
     return () => clearTimeout(t);
   }, [location.pathname]);
 
@@ -117,7 +117,7 @@ export default function App() {
           <Navbar />
           <CursorFollower />
           <CommandPalette />
-          <AskAjinkya />
+          <Aira />
           <LoadingOverlay show={navLoading} />
           <ScrollToTop />
 

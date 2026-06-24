@@ -61,6 +61,9 @@ const ProcessStrip = () => {
                 <div className="absolute -top-24 -right-24 w-56 h-56 bg-emerald-500/10 rounded-full blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 <div className="absolute inset-0 noise-texture opacity-10 pointer-events-none mix-blend-overlay" />
                 <div className="absolute top-6 right-8 text-[8rem] leading-none font-extrabold text-white/[0.04] select-none">{p.step}</div>
+                <div className="absolute -bottom-10 -right-6 text-[12rem] text-white opacity-[0.03] group-hover:opacity-[0.06] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none z-0 leading-none">
+                  <p.Icon />
+                </div>
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg font-extrabold shadow-lg mb-6">
                     {p.step}

@@ -1,7 +1,7 @@
 // Freelance route data: client work, services, process, testimonials.
 // Audience = business clients. Outcomes over jargon, zero job-search language.
 
-import { FaLaptopCode, FaChartLine, FaRobot, FaPaintBrush } from "react-icons/fa";
+import { FaLaptopCode, FaChartLine, FaRobot, FaPaintBrush, FaSearch, FaPenNib, FaCode, FaRocket } from "react-icons/fa";
 
 export const CLIENT_WORK = [
   {
@@ -41,10 +41,10 @@ export const CLIENT_WORK = [
     client: "Wasro",
     image: "/clients/wasro.jpg",
     monogram: "W",
-    tag: "Web · Brand",
-    outcome: "Brand & web presence",
-    desc: "End-to-end web build translating brand goals into a clean, fast, conversion-minded site.",
-    demo: null, // TODO: add live Wasro URL + screenshot when available
+    tag: "FMCG · Brand",
+    outcome: "Home-care brand website",
+    desc: "Official brand site for Wasro, a value-tier home-care FMCG range — translating brand goals into a clean, fast, conversion-minded product showcase.",
+    demo: "https://wasro.vercel.app/",
     accent: "from-emerald-500 to-teal-500",
     glow: "glow-emerald",
   },
@@ -78,10 +78,10 @@ export const SERVICES = [
 ];
 
 export const PROCESS = [
-  { step: "01", title: "Discovery", desc: "We talk through your goals, users, and constraints — so we build the right thing, not just a thing." },
-  { step: "02", title: "Design", desc: "Wireframes and a clear visual direction. You see and shape it before a line of code is written." },
-  { step: "03", title: "Build", desc: "Iterative development with regular check-ins. Clean, fast, maintainable code at every step." },
-  { step: "04", title: "Launch", desc: "Deploy, test, and hand off — with the support you need to grow after go-live." },
+  { step: "01", title: "Discovery", Icon: FaSearch, desc: "We talk through your goals, users, and constraints — so we build the right thing, not just a thing." },
+  { step: "02", title: "Design", Icon: FaPenNib, desc: "Wireframes and a clear visual direction. You see and shape it before a line of code is written." },
+  { step: "03", title: "Build", Icon: FaCode, desc: "Iterative development with regular check-ins. Clean, fast, maintainable code at every step." },
+  { step: "04", title: "Launch", Icon: FaRocket, desc: "Deploy, test, and hand off — with the support you need to grow after go-live." },
 ];
 
 // Add real, attributable client quotes here (quote / name / role). While this

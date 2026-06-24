@@ -1,7 +1,6 @@
 // "Product thinking in practice" — own engineering work framed as product calls.
 
-import { motion } from "framer-motion";
-import { Reveal, SectionHeader } from "../shared/AnimationUtils";
+import { Reveal, SectionHeader, TiltCard } from "../shared/AnimationUtils";
 import { PRODUCT_THINKING } from "../../data/pm-data";
 
 const ProductThinking = () => (
@@ -18,12 +17,15 @@ const ProductThinking = () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {PRODUCT_THINKING.map((p, i) => (
         <Reveal key={p.title} idx={i}>
-          <motion.div whileHover={{ y: -6 }} className="h-full glass-panel rounded-3xl p-6 border border-white/10 hover:border-purple-500/40 transition-colors duration-500 relative overflow-hidden group">
+          <TiltCard whileHover={{ y: -6 }} className="h-full glass-panel rounded-3xl p-6 border border-white/10 hover:border-purple-500/40 transition-colors duration-500 relative overflow-hidden group">
             <div className="absolute -top-16 -right-16 w-40 h-40 bg-purple-500/10 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <span className="text-[10px] font-mono tracking-widest uppercase text-purple-300 border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 rounded-full">{p.angle}</span>
-            <h4 className="text-xl font-bold text-white mt-4 mb-2">{p.title}</h4>
-            <p className="text-white/55 text-sm leading-relaxed">{p.blurb}</p>
-          </motion.div>
+            <div className="absolute inset-0 z-[1] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "radial-gradient(320px circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,0.07), transparent 45%)" }} />
+            <div className="relative z-10">
+              <span className="text-[10px] font-mono tracking-widest uppercase text-purple-300 border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 rounded-full">{p.angle}</span>
+              <h4 className="text-xl font-bold text-white mt-4 mb-2">{p.title}</h4>
+              <p className="text-white/55 text-sm leading-relaxed">{p.blurb}</p>
+            </div>
+          </TiltCard>
         </Reveal>
       ))}
     </div>

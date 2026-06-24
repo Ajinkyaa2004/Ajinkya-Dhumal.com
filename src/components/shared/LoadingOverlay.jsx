@@ -18,9 +18,9 @@ const LoadingOverlay = ({ show }) => (
         aria-hidden="true"
       >
         <div className="absolute inset-0 noise-texture opacity-20 pointer-events-none" />
-        <div className="absolute w-[40vw] h-[40vw] rounded-full blur-[90px] pointer-events-none" style={{ background: "rgba(var(--accent-rgb), 0.14)" }} />
-        <LoadingLottie className="w-36 h-36 md:w-44 md:h-44 relative z-10" />
-        <p className="relative z-10 -mt-2 text-white/45 text-[11px] tracking-[0.35em] uppercase font-semibold">Loading</p>
+        <div className="absolute w-[50vw] h-[50vw] rounded-full blur-[90px] pointer-events-none" style={{ background: "rgba(var(--accent-rgb), 0.16)" }} />
+        <LoadingLottie className="w-56 h-56 md:w-80 md:h-80 relative z-10" />
+        <p className="relative z-10 -mt-4 md:-mt-6 text-white/60 text-base md:text-xl tracking-[0.45em] uppercase font-bold">Loading</p>
       </motion.div>
     )}
   </AnimatePresence>
