@@ -111,7 +111,7 @@ const SplashScreen = ({ onFinish }) => {
   if (done) return null;
 
   return (
-    <div ref={root} onClick={finish} role="button" tabIndex={0} aria-label="Skip intro" onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && finish()} className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center overflow-hidden cursor-pointer">
+    <div ref={root} aria-label="Intro animation" className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute w-[60vw] h-[60vw] rounded-full" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)", top: "-20%", left: "-15%" }} />
       <div className="absolute w-[45vw] h-[45vw] rounded-full" style={{ background: "radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%)", bottom: "-25%", right: "-10%" }} />
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
@@ -144,10 +144,6 @@ const SplashScreen = ({ onFinish }) => {
         </div>
       </div>
 
-      {/* Skip affordance — repeat visitors aren't gated by the full intro */}
-      <span className="absolute bottom-6 right-6 z-20 text-[11px] font-mono tracking-[0.25em] uppercase text-white/40 border border-white/10 rounded-full px-4 py-2 pointer-events-none">
-        Tap to skip →
-      </span>
     </div>
   );
 };

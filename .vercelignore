@@ -1,0 +1,8 @@
+# Secrets & local-only files — never upload to Vercel
+.env
+.env.*
+_source
+docs
+.claude
+CLAUDE.md
+SEO-PLAN.md
