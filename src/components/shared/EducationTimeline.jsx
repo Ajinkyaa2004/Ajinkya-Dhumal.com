@@ -73,7 +73,6 @@ const EducationTimeline = () => {
             opacity: 0,
             y: top ? -50 : 50,
             scale: 0.92,
-            filter: "blur(6px)",
             duration: 0.7,
             ease: "power3.out",
             scrollTrigger: { trigger: el, containerAnimation: scrollTween, start: "left 82%", toggleActions: "play none none reverse" },

@@ -38,7 +38,14 @@ const routeKeyFromPath = (pathname) => {
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useLayoutEffect(() => {
+    // Always land at the top (hero) on every route change — disable the browser's
+    // scroll restoration, clear GSAP's remembered scroll, then force top again
+    // after the new page's pinned ScrollTriggers settle.
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+    ScrollTrigger.clearScrollMemory();
     window.scrollTo(0, 0);
+    const id = requestAnimationFrame(() => window.scrollTo(0, 0));
+    return () => cancelAnimationFrame(id);
   }, [pathname]);
   return null;
 };

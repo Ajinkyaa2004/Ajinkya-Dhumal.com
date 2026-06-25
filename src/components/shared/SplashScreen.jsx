@@ -61,7 +61,7 @@ const SplashScreen = ({ onFinish }) => {
 
       gsap.set(q(".splash-dot, .splash-particle"), { xPercent: -50, yPercent: -50 });
       gsap.set(q(".splash-name"), { opacity: 1 });
-      gsap.set(split.chars, { opacity: 0, yPercent: 60, filter: "blur(8px)" });
+      gsap.set(split.chars, { opacity: 0, yPercent: 60 });
       gsap.set(q(".splash-shape"), { opacity: 0, scale: 0, transformOrigin: "50% 50%" });
       gsap.set(q(".splash-dot"), { scale: 0, opacity: 0 });
       gsap.set(q(".splash-particle"), { opacity: 0, x: 0, y: 0 });
@@ -93,7 +93,7 @@ const SplashScreen = ({ onFinish }) => {
         .to(q(".splash-particle"), { opacity: 0, duration: 0.5 }, ">-0.4");
 
       // Stage 3 — name letters rise + unblur
-      tl.to(split.chars, { opacity: 1, yPercent: 0, filter: "blur(0px)", duration: 0.7, ease: "power3.out", stagger: 0.045 }, ">-0.25");
+      tl.to(split.chars, { opacity: 1, yPercent: 0, duration: 0.7, ease: "power3.out", stagger: 0.045 }, ">-0.25");
 
       // Stage 4 — shape shrinks to a mark; tagline types in
       tl.to(q(".splash-shape"), { scale: 0.26, y: -78, opacity: 0.55, duration: 0.7, ease: "power2.inOut" }, ">-0.1")

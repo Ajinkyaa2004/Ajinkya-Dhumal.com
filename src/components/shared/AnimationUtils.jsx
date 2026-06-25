@@ -217,7 +217,7 @@ export const SplitHeadline = ({ lines, className = "", as: Tag = "h1", delay = 0
         words.push(...s.words);
       });
       gsap.set(words, { display: "inline-block" });
-      gsap.from(words, { yPercent: 110, opacity: 0, filter: "blur(6px)", duration: 0.8, ease: "power3.out", stagger: 0.05, delay });
+      gsap.from(words, { yPercent: 110, opacity: 0, duration: 0.8, ease: "power3.out", stagger: 0.05, delay });
       return () => splits.forEach((s) => s.revert());
     },
     { scope: ref }
