@@ -63,6 +63,12 @@ export default function App() {
     PRELOADERS[activeKey]?.();
   }, [activeKey]);
 
+  // Warm the loading Lottie (lottie-react + JSON) once, so the "hand" loader
+  // shows immediately — even on mobile — instead of the CSS-spinner fallback.
+  useEffect(() => {
+    Promise.all([import("lottie-react"), import("./lottie/loading.json")]).catch(() => {});
+  }, []);
+
   // Deliberate loading beat between route changes (skip first load + reduced motion).
   useEffect(() => {
     if (firstNav.current) {
@@ -77,10 +83,11 @@ export default function App() {
 
   const finishSplash = () => setShowSplash(false);
 
-  // Parallax drift on the ambient orbs (skipped on low-perf devices).
+  // Parallax drift on the ambient orbs (desktop only — skipped on mobile/low-perf
+  // so phones don't pay for scroll-linked transforms on big blurred orbs).
   useGSAP(
     () => {
-      if (showSplash || detectLowPerf()) return;
+      if (showSplash || detectLowPerf() || window.innerWidth < 1024) return;
       const orbs = gsap.utils.toArray("[data-orb]");
       const dist = [140, -120, 180];
       orbs.forEach((orb, i) => {

@@ -168,6 +168,20 @@
   }
 }
 
+/* === Mobile performance: drop the GPU-expensive effects (<1024px) so phones stay buttery === */
+@media (max-width: 1023px) {
+  /* backdrop-blur is the single biggest mobile cost — it re-rasterizes on every
+     scroll frame across dozens of panels. Drop it; use a more opaque bg instead. */
+  .glass-panel {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    background: rgba(21, 22, 30, 0.86);
+  }
+  /* Freeze the large ambient/animated blurs so they don't re-blur each frame. */
+  .animate-blob,
+  .animate-pulse-slow { animation: none !important; }
+}
+
 /* Hide scrollbar (mobile horizontal process swipe container) */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

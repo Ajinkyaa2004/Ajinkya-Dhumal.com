@@ -112,8 +112,31 @@ const EducationTimeline = () => {
         />
       </div>
 
-      {/* Pinned (desktop) / swipeable (mobile) horizontal stage */}
-      <div ref={stageRef} className="overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory lg:snap-none">
+      {/* Mobile: a vertical timeline — scroll straight down, no sideways swipe */}
+      <div className="lg:hidden px-6 relative">
+        <div className="absolute left-[47px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-amber-500/10 via-amber-500/50 to-amber-500/10" />
+        <div className="space-y-5">
+          {EDUCATION.map((edu, i) => {
+            const Icon = edu.isWork ? MdWork : GraduationCap;
+            return (
+              <div key={i} className="relative flex gap-4 items-start">
+                <div className={`relative z-10 w-12 h-12 rounded-full border-2 ${edu.isWork ? "border-amber-500/60 text-amber-300" : "border-orange-500/60 text-orange-300"} bg-[#050505] flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(251,146,60,0.35)]`}>
+                  <Icon size={18} />
+                </div>
+                <div className="glass-panel rounded-2xl p-4 border border-white/10 flex-1 min-w-0">
+                  <span className={`font-mono text-xs ${edu.isWork ? "text-amber-400" : "text-orange-400"} font-bold block mb-1.5`}>{edu.year}</span>
+                  <h4 className="text-base font-bold text-white mb-1 leading-snug">{edu.title}</h4>
+                  <span className="text-xs text-white/70 block mb-1.5 font-medium">{edu.place}</span>
+                  <p className="text-[11px] text-white/50 leading-relaxed">{edu.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Desktop: pinned horizontal stage */}
+      <div ref={stageRef} className="hidden lg:block overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory lg:snap-none">
         <div ref={trackRef} className="relative flex items-stretch px-6 md:px-20 lg:pr-[20vw] w-max h-[420px] sm:h-[460px]">
           {/* rail */}
           <div className="absolute left-6 right-0 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-amber-500/10 via-amber-500/50 to-amber-500/10 shadow-[0_0_12px_rgba(251,146,60,0.3)]" />

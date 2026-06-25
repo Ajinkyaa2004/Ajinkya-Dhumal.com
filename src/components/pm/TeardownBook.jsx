@@ -14,10 +14,10 @@ const pad = (n) => String(n).padStart(2, "0");
 
 // One book page — gutter shadow (left), content, page number (bottom-right).
 const Page = ({ children, num }) => (
-  <div className="shrink-0 w-[86vw] lg:w-full h-full snap-center relative bg-gradient-to-br from-[#16131f] to-[#0c0a13] overflow-hidden">
-    <div className="absolute inset-y-0 left-0 w-12 z-20 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.5), transparent)" }} />
+  <div className="shrink-0 w-full lg:h-full rounded-2xl lg:rounded-none border border-white/10 lg:border-0 relative bg-gradient-to-br from-[#16131f] to-[#0c0a13] overflow-hidden">
+    <div className="absolute inset-y-0 left-0 w-12 z-20 pointer-events-none hidden lg:block" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.5), transparent)" }} />
     <div className="absolute inset-0 noise-texture opacity-[0.04] pointer-events-none mix-blend-overlay" />
-    <div className="relative z-10 h-full overflow-y-auto no-scrollbar p-7 md:p-10 lg:p-12">{children}</div>
+    <div className="relative z-10 lg:h-full lg:overflow-y-auto no-scrollbar p-7 md:p-10 lg:p-12">{children}</div>
     {num && <span className="absolute bottom-4 right-6 z-20 text-[11px] font-mono text-white/25 tracking-widest">{num} / {pad(PAGES)}</span>}
   </div>
 );
@@ -83,12 +83,12 @@ const TeardownBook = () => {
             {/* page window */}
             <div
               ref={winRef}
-              className="relative overflow-x-auto lg:overflow-hidden snap-x snap-mandatory lg:snap-none no-scrollbar rounded-[1.15rem] h-[64vh] md:h-[540px]"
+              className="relative lg:overflow-hidden no-scrollbar rounded-[1.15rem] lg:h-[540px]"
             >
-              <div ref={trackRef} className="flex h-full w-full will-change-transform">
+              <div ref={trackRef} className="flex flex-col gap-4 lg:flex-row lg:gap-0 w-full lg:h-full will-change-transform">
                 {/* Cover */}
                 <Page>
-                  <div className="h-full flex flex-col items-center justify-center text-center relative">
+                  <div className="min-h-[58vh] lg:min-h-0 lg:h-full flex flex-col items-center justify-center text-center relative">
                     <div className="absolute -top-4 -right-4 text-[10rem] text-white opacity-[0.04] leading-none pointer-events-none">❝</div>
                     <p className="text-[11px] font-bold tracking-[0.4em] uppercase text-violet-300/70 mb-5">Ajinkya Dhumal · Product</p>
                     <h3 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
