@@ -1,9 +1,10 @@
 // PM hero — "Product-Minded Engineer → Product Manager" with IBM cert badge.
 
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { motion } from "framer-motion";
 import { MdArrowOutward } from "react-icons/md";
 import { FileText } from "lucide-react";
+import DesktopLottie from "../shared/DesktopLottie";
 import { MagneticLink, SplitHeadline } from "../shared/AnimationUtils";
 import { CASE_STUDY_TOTAL } from "../../data/pm-data";
 import { CONTACT } from "../../data/shared-data";
@@ -60,9 +61,9 @@ const PMHero = () => (
     {/* Workplace illustration */}
     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }} className="flex-1 flex justify-center items-center w-full max-w-xl z-10 relative">
       <div className="absolute inset-0 bg-violet-500/20 blur-[60px] rounded-full" />
-      <Suspense fallback={<div className="w-full max-w-xl h-[280px] sm:h-[340px] md:h-[400px] rounded-full theme-soft-panel" />}>
+      <DesktopLottie fallback={<div className="w-full max-w-xl h-[280px] sm:h-[340px] md:h-[400px] rounded-full theme-soft-panel" />}>
         <LazyHeroLottie />
-      </Suspense>
+      </DesktopLottie>
     </motion.div>
   </section>
 );

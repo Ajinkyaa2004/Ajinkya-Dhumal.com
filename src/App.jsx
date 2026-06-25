@@ -70,12 +70,6 @@ export default function App() {
     PRELOADERS[activeKey]?.();
   }, [activeKey]);
 
-  // Warm the loading Lottie (lottie-react + JSON) once, so the "hand" loader
-  // shows immediately — even on mobile — instead of the CSS-spinner fallback.
-  useEffect(() => {
-    Promise.all([import("lottie-react"), import("./lottie/loading.json")]).catch(() => {});
-  }, []);
-
   // Deliberate loading beat between route changes (skip first load + reduced motion).
   useEffect(() => {
     if (firstNav.current) {

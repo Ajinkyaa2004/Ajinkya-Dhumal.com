@@ -1,8 +1,9 @@
 // Freelance hero — client-focused. Outcomes, not job-search language.
 
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { motion } from "framer-motion";
 import { MdArrowOutward } from "react-icons/md";
+import DesktopLottie from "../shared/DesktopLottie";
 import { FaWhatsapp } from "react-icons/fa";
 import { MagneticLink, SplitHeadline } from "../shared/AnimationUtils";
 import { CONTACT } from "../../data/shared-data";
@@ -56,9 +57,9 @@ const FreelanceHero = () => (
 
     <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.5, type: "spring" }} className="flex-1 flex justify-center items-center mt-12 md:mt-0 z-10 relative">
       <div className="absolute inset-0 bg-emerald-500/20 blur-[60px] rounded-full" />
-      <Suspense fallback={<div className="w-full max-w-lg h-[300px] sm:h-[360px] md:h-[440px] rounded-full theme-soft-panel" />}>
+      <DesktopLottie fallback={<div className="w-full max-w-lg h-[300px] sm:h-[360px] md:h-[440px] rounded-full theme-soft-panel" />}>
         <LazyHeroLottie />
-      </Suspense>
+      </DesktopLottie>
     </motion.div>
   </section>
 );

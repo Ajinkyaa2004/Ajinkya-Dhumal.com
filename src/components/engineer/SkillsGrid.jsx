@@ -1,8 +1,9 @@
 // Skills grid — 4 categories with animated proficiency bars + live filler card.
 
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
+import DesktopLottie from "../shared/DesktopLottie";
 import { AnimatedProgress, SectionHeader } from "../shared/AnimationUtils";
 import { SKILL_CATEGORIES } from "../../data/engineer-data";
 import { CONTACT } from "../../data/shared-data";
@@ -83,9 +84,9 @@ const SkillsGrid = () => (
           </div>
 
           <div className="relative z-10 w-full md:w-1/2 flex justify-center mt-6 md:mt-0 opacity-90 group-hover:opacity-100 group-hover:scale-[1.15] drop-shadow-[0_0_25px_rgba(6,182,212,0.3)] transition-all duration-700">
-            <Suspense fallback={<div className="w-full max-w-[420px] h-[280px] sm:h-[340px] md:h-[420px] rounded-full theme-soft-panel" />}>
+            <DesktopLottie fallback={<div className="w-full max-w-[420px] h-[280px] sm:h-[340px] md:h-[420px] rounded-full theme-soft-panel" />}>
               <DotLottieReact src="/lottie/Assistant-Bot.lottie" loop autoplay className="w-full max-w-[420px] h-[280px] sm:h-[340px] md:h-[420px] scale-110" />
-            </Suspense>
+            </DesktopLottie>
           </div>
         </motion.div>
       </div>

@@ -1,6 +1,8 @@
 // Performance + capability detection. Drives whether we run heavy effects
 // (particles, parallax, cursor follower) or fall back to lighter motion.
 
+import { useState, useEffect } from "react";
+
 export const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -21,3 +23,19 @@ export const isDesktopPointer = () =>
   window.matchMedia("(pointer: fine)").matches &&
   window.innerWidth >= 1024 &&
   !prefersReducedMotion();
+
+// Reactive desktop check (≥1024px). Used to keep heavy/decorative assets —
+// lottie-react + large Lottie JSON — OFF mobile entirely so phones load fast.
+export const useIsDesktop = () => {
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== "undefined" && window.innerWidth >= 1024
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const on = () => setIsDesktop(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return isDesktop;
+};

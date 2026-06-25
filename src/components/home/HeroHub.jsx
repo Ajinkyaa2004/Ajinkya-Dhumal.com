@@ -1,8 +1,9 @@
 // Home hero hub — routes visitors to the right portfolio within ~5 seconds.
 // The three route cards are the centerpiece.
 
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { motion } from "framer-motion";
+import DesktopLottie from "../shared/DesktopLottie";
 import { Code2, LineChart, Briefcase, ArrowRight } from "lucide-react";
 import { MagneticLink, SplitHeadline } from "../shared/AnimationUtils";
 import { ROUTE_ACCENTS } from "../../data/shared-data";
@@ -26,9 +27,9 @@ const HeroHub = () => (
 
     <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center relative z-10">
       <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="mb-2">
-        <Suspense fallback={<div className="w-full max-w-md h-[260px] sm:h-[320px] md:h-[380px]" />}>
+        <DesktopLottie fallback={<div className="w-full max-w-md h-[260px] sm:h-[320px] md:h-[380px]" />}>
           <LazyHeroLottie />
-        </Suspense>
+        </DesktopLottie>
       </motion.div>
 
       <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-sm md:text-base font-semibold tracking-[0.2em] uppercase text-white/50">
