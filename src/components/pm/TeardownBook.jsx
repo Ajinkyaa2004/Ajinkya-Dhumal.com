@@ -14,10 +14,10 @@ const pad = (n) => String(n).padStart(2, "0");
 
 // One book page — gutter shadow (left), content, page number (bottom-right).
 const Page = ({ children, num }) => (
-  <div className="shrink-0 w-full lg:h-full rounded-2xl lg:rounded-none border border-white/10 lg:border-0 relative bg-gradient-to-br from-[#16131f] to-[#0c0a13] overflow-hidden">
-    <div className="absolute inset-y-0 left-0 w-12 z-20 pointer-events-none hidden lg:block" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.5), transparent)" }} />
+  <div className="shrink-0 w-full h-full snap-center relative bg-gradient-to-br from-[#16131f] to-[#0c0a13] overflow-hidden">
+    <div className="absolute inset-y-0 left-0 w-12 z-20 pointer-events-none" style={{ background: "linear-gradient(to right, rgba(0,0,0,0.5), transparent)" }} />
     <div className="absolute inset-0 noise-texture opacity-[0.04] pointer-events-none mix-blend-overlay" />
-    <div className="relative z-10 lg:h-full lg:overflow-y-auto no-scrollbar p-7 md:p-10 lg:p-12">{children}</div>
+    <div className="relative z-10 h-full overflow-y-auto no-scrollbar p-7 md:p-10 lg:p-12">{children}</div>
     {num && <span className="absolute bottom-4 right-6 z-20 text-[11px] font-mono text-white/25 tracking-widest">{num} / {pad(PAGES)}</span>}
   </div>
 );
@@ -31,7 +31,9 @@ const TeardownBook = () => {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+      // Pinned page-slide on ALL widths (phones included) — scroll up/down, pages
+      // turn left→right. Reduced-motion users get the native swipe instead.
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         const track = trackRef.current;
         const dist = () => winRef.current.offsetWidth * (PAGES - 1);
         const tween = gsap.to(track, {
@@ -57,7 +59,7 @@ const TeardownBook = () => {
   );
 
   return (
-    <section ref={sectionRef} aria-label="Product playbook" className="relative z-10 lg:h-screen lg:flex lg:flex-col lg:justify-center overflow-hidden">
+    <section ref={sectionRef} aria-label="Product playbook" className="relative z-10 motion-safe:h-screen motion-safe:flex motion-safe:flex-col motion-safe:justify-center overflow-hidden">
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-violet-600/12 rounded-full blur-[70px] pointer-events-none" />
 
       <div className="px-6 md:px-20 max-w-6xl mx-auto w-full pt-16 lg:pt-0 mb-6 lg:mb-8 relative z-10">
@@ -83,12 +85,12 @@ const TeardownBook = () => {
             {/* page window */}
             <div
               ref={winRef}
-              className="relative lg:overflow-hidden no-scrollbar rounded-[1.15rem] lg:h-[540px]"
+              className="relative overflow-x-auto motion-safe:overflow-hidden snap-x snap-mandatory motion-safe:snap-none no-scrollbar rounded-[1.15rem] h-[64vh] md:h-[540px]"
             >
-              <div ref={trackRef} className="flex flex-col gap-4 lg:flex-row lg:gap-0 w-full lg:h-full will-change-transform">
+              <div ref={trackRef} className="flex h-full w-full will-change-transform">
                 {/* Cover */}
                 <Page>
-                  <div className="min-h-[58vh] lg:min-h-0 lg:h-full flex flex-col items-center justify-center text-center relative">
+                  <div className="h-full flex flex-col items-center justify-center text-center relative">
                     <div className="absolute -top-4 -right-4 text-[10rem] text-white opacity-[0.04] leading-none pointer-events-none">❝</div>
                     <p className="text-[11px] font-bold tracking-[0.4em] uppercase text-violet-300/70 mb-5">Ajinkya Dhumal · Product</p>
                     <h3 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
@@ -98,8 +100,8 @@ const TeardownBook = () => {
                     <p className="text-white/50 text-sm md:text-base mt-5 max-w-md leading-relaxed">Strategic teardowns — the framework, the insights, and the call I'd actually make. {FEATURED_TEARDOWNS.length} featured, part of {CASE_STUDY_TOTAL} total.</p>
                     <div className="mt-8 h-px w-24 bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
                     <p className="mt-6 text-[10px] font-mono tracking-[0.3em] uppercase text-white/30">
-                      <span className="hidden lg:inline">Scroll to turn the page →</span>
-                      <span className="lg:hidden">Swipe to turn the page →</span>
+                      <span className="hidden motion-safe:inline">Scroll to turn the page →</span>
+                      <span className="hidden motion-reduce:inline">Swipe to turn the page →</span>
                     </p>
                   </div>
                 </Page>
@@ -154,7 +156,7 @@ const TeardownBook = () => {
           </div>
 
           {/* progress dots */}
-          <div className="hidden lg:flex items-center justify-center gap-2 mt-6">
+          <div className="hidden motion-safe:flex items-center justify-center gap-2 mt-6">
             {Array.from({ length: PAGES }).map((_, i) => (
               <span key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === page ? "w-7 bg-gradient-to-r from-violet-400 to-fuchsia-400" : "w-1.5 bg-white/20"}`} />
             ))}
