@@ -40,7 +40,7 @@ const SplashScreen = ({ onFinish }) => {
   // Safety net: always finish even if the GSAP timeline never reaches its
   // onComplete (e.g. a backgrounded tab pauses rAF). setTimeout still fires.
   useEffect(() => {
-    const id = setTimeout(finish, 4500);
+    const id = setTimeout(finish, 2200);
     return () => clearTimeout(id);
   }, [finish]);
 
@@ -69,7 +69,10 @@ const SplashScreen = ({ onFinish }) => {
       gsap.set(q(".splash-tagline-text"), { clipPath: "inset(0 100% 0 0)" });
 
       let spin;
+      // Play the whole intro ~2.2× faster (~1.8s instead of ~4s) so the real
+      // content paints far sooner — the splash was the #1 cause of the 6.4s LCP.
       const tl = gsap.timeline({ onComplete: finish });
+      tl.timeScale(2.2);
 
       // Stage 1 — dot appears + pulses
       tl.to(q(".splash-dot"), { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" })

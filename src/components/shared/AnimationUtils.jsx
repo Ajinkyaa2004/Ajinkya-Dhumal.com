@@ -200,7 +200,9 @@ export const SplitHeadline = ({ lines, className = "", as: Tag = "h1", delay = 0
 
   useGSAP(
     () => {
-      if (prefersReducedMotion()) return; // render as-is (gradient on the line element)
+      // Mobile / reduced-motion: render the headline as-is (instant paint). The
+      // headline is the LCP element — animating it in delays Largest Contentful Paint.
+      if (prefersReducedMotion() || window.innerWidth < 1024) return;
       const lineEls = ref.current.querySelectorAll("[data-line]");
       const splits = [];
       const words = [];

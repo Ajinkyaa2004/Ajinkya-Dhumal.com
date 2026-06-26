@@ -9,8 +9,6 @@ import Footer from "./components/shared/Footer";
 import SplashScreen from "./components/shared/SplashScreen";
 import NotFound from "./pages/NotFound";
 import CursorFollower from "./components/shared/CursorFollower";
-import CommandPalette from "./components/shared/CommandPalette";
-import Aira from "./components/shared/Aira";
 import LoadingLottie from "./components/shared/LoadingLottie";
 import LoadingOverlay from "./components/shared/LoadingOverlay";
 import { Analytics } from "@vercel/analytics/react";
@@ -26,6 +24,10 @@ const EngineerPage = lazy(loadEngineer);
 const PMPage = lazy(loadPM);
 const FreelancePage = lazy(loadFreelance);
 const PRELOADERS = { home: loadHome, engineer: loadEngineer, pm: loadPM, freelance: loadFreelance };
+
+// Non-critical overlays — code-split + deferred so they don't weigh down first paint.
+const CommandPalette = lazy(() => import("./components/shared/CommandPalette"));
+const Aira = lazy(() => import("./components/shared/Aira"));
 
 const routeKeyFromPath = (pathname) => {
   const p = pathname.replace(/\/+$/, "") || "/";
@@ -118,45 +120,46 @@ export default function App() {
       <div className="fixed inset-0 z-0 pointer-events-none opacity-20 noise-texture" />
       <Analytics />
 
-      {showSplash ? (
-        <SplashScreen onFinish={finishSplash} />
-      ) : (
-        <>
-          <Navbar />
-          <CursorFollower />
-          <CommandPalette />
-          <Aira />
-          <LoadingOverlay show={navLoading} />
-          <ScrollToTop />
+      {/* Splash overlays on top while it plays; the real app renders UNDERNEATH it
+          from the first frame, so content (and pinned layout) is ready the instant
+          the splash fades — that's the big LCP + CLS win. */}
+      {showSplash && <SplashScreen onFinish={finishSplash} />}
 
-          {/* Ambient accent orbs (outer = parallax target, inner = CSS drift + color) */}
-          <div data-orb className="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] pointer-events-none z-0">
-            <div className="w-full h-full rounded-full blur-[80px] animate-pulse-slow" style={{ background: "rgba(var(--accent-rgb), 0.12)" }} />
-          </div>
-          <div data-orb className="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] pointer-events-none z-0">
-            <div className="w-full h-full rounded-full blur-[80px] animate-pulse-slow" style={{ background: "rgba(var(--accent-2-rgb), 0.08)", animationDelay: "2s" }} />
-          </div>
-          <div data-orb className="fixed top-[40%] left-[20%] w-[30vw] h-[30vw] pointer-events-none z-0">
-            <div className="w-full h-full rounded-full blur-[80px] animate-blob" style={{ background: "rgba(var(--accent-rgb), 0.08)" }} />
-          </div>
+      <Navbar />
+      <CursorFollower />
+      <Suspense fallback={null}>
+        <CommandPalette />
+        <Aira />
+      </Suspense>
+      <LoadingOverlay show={navLoading} />
+      <ScrollToTop />
 
-          <main role="main" className="relative z-10">
-            <Suspense fallback={<PageFallback />}>
-              <motion.div key={location.pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }}>
-                <Routes location={location}>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/engineer" element={<EngineerPage />} />
-                  <Route path="/pm" element={<PMPage />} />
-                  <Route path="/freelance" element={<FreelancePage />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </motion.div>
-            </Suspense>
-          </main>
+      {/* Ambient accent orbs (outer = parallax target, inner = CSS drift + color) */}
+      <div data-orb className="fixed top-[-10%] left-[-10%] w-[40vw] h-[40vw] pointer-events-none z-0">
+        <div className="w-full h-full rounded-full blur-[80px] animate-pulse-slow" style={{ background: "rgba(var(--accent-rgb), 0.12)" }} />
+      </div>
+      <div data-orb className="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] pointer-events-none z-0">
+        <div className="w-full h-full rounded-full blur-[80px] animate-pulse-slow" style={{ background: "rgba(var(--accent-2-rgb), 0.08)", animationDelay: "2s" }} />
+      </div>
+      <div data-orb className="fixed top-[40%] left-[20%] w-[30vw] h-[30vw] pointer-events-none z-0">
+        <div className="w-full h-full rounded-full blur-[80px] animate-blob" style={{ background: "rgba(var(--accent-rgb), 0.08)" }} />
+      </div>
 
-          <Footer />
-        </>
-      )}
+      <main role="main" className="relative z-10">
+        <Suspense fallback={<PageFallback />}>
+          <motion.div key={location.pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }}>
+            <Routes location={location}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/engineer" element={<EngineerPage />} />
+              <Route path="/pm" element={<PMPage />} />
+              <Route path="/freelance" element={<FreelancePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </motion.div>
+        </Suspense>
+      </main>
+
+      <Footer />
     </div>
   );
 }
