@@ -46,7 +46,7 @@ const AboutSection = () => (
 
         {/* Hackathon widget */}
         <motion.div initial={{ opacity: 0, y: 30, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} whileHover={{ y: -4, scale: 1.01 }} className="glass-panel hover-glass-panel rounded-3xl p-6 flex flex-col items-start justify-end relative overflow-hidden group border border-white/10 hover:border-yellow-500/50 transition-all duration-500 shadow-lg">
-          <div className="absolute -right-4 -top-4 text-8xl opacity-30 drop-shadow-[0_0_20px_rgba(234,179,8,0.8)]">🏆</div>
+          <div className="absolute right-2 top-2 text-7xl opacity-30 drop-shadow-[0_0_20px_rgba(234,179,8,0.8)] pointer-events-none">🏆</div>
           <div className="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative z-10 w-full">
             <div className="flex justify-between items-center mb-4">

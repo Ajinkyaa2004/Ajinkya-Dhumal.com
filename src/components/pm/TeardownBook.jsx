@@ -155,11 +155,21 @@ const TeardownBook = () => {
             <div className="absolute right-[3px] top-7 bottom-7 w-1.5 rounded-r-md bg-gradient-to-l from-white/12 via-white/5 to-transparent pointer-events-none z-30" />
           </div>
 
-          {/* progress dots */}
-          <div className="hidden motion-safe:flex items-center justify-center gap-2 mt-6">
-            {Array.from({ length: PAGES }).map((_, i) => (
-              <span key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === page ? "w-7 bg-gradient-to-r from-violet-400 to-fuchsia-400" : "w-1.5 bg-white/20"}`} />
-            ))}
+          {/* progress dots + a live "keep scrolling" affordance so the pinned page-flip
+              is obvious (and the user knows the site continues after the last page) */}
+          <div className="hidden motion-safe:flex flex-col items-center gap-2.5 mt-6">
+            <div className="flex items-center gap-2">
+              {Array.from({ length: PAGES }).map((_, i) => (
+                <span key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === page ? "w-7 bg-gradient-to-r from-violet-400 to-fuchsia-400" : "w-1.5 bg-white/20"}`} />
+              ))}
+            </div>
+            <p className="text-[10px] font-mono tracking-[0.18em] uppercase text-white/45 flex items-center gap-1.5">
+              {page === 0
+                ? "Scroll ↓ to flip through the playbook"
+                : page < PAGES - 1
+                ? `${page} / ${PAGES - 1} · keep scrolling ↓ to flip`
+                : "Last page · scroll ↓ to continue"}
+            </p>
           </div>
         </div>
       </div>

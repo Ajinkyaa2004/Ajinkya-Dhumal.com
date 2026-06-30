@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Any anchor/section scroll clears the fixed navbar so headers aren't cut off. */
+html { scroll-padding-top: 5rem; }
+
 :root {
   color-scheme: dark;
   --theme-bg-base: #050505;

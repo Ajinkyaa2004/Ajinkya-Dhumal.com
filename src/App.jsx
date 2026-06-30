@@ -40,14 +40,21 @@ const routeKeyFromPath = (pathname) => {
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useLayoutEffect(() => {
-    // Always land at the top (hero) on every route change — disable the browser's
-    // scroll restoration, clear GSAP's remembered scroll, then force top again
-    // after the new page's pinned ScrollTriggers settle.
+    // Always land at the top (hero) on every route change. The GSAP pinned sections
+    // (book, timeline) set up + ScrollTrigger.refresh() over the next ~1.2s, and each
+    // can nudge the scroll back down — so we disable browser restoration, clear GSAP's
+    // remembered scroll, and keep forcing the top through that whole settle window
+    // (all hidden under the splash / route-loading overlay).
     if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
     ScrollTrigger.clearScrollMemory();
-    window.scrollTo(0, 0);
-    const id = requestAnimationFrame(() => window.scrollTo(0, 0));
-    return () => cancelAnimationFrame(id);
+    const toTop = () => window.scrollTo(0, 0);
+    toTop();
+    const raf = requestAnimationFrame(toTop);
+    const timers = [80, 350, 800, 1300].map((ms) => setTimeout(toTop, ms));
+    return () => {
+      cancelAnimationFrame(raf);
+      timers.forEach(clearTimeout);
+    };
   }, [pathname]);
   return null;
 };
