@@ -20,7 +20,7 @@ const AboutSection = () => (
         highlightGrad="from-teal-400 via-emerald-400 to-green-400"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[220px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(260px,auto)] md:auto-rows-[minmax(220px,auto)]">
         {/* Main intro */}
         <motion.div initial={{ opacity: 0, y: 30, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6, delay: 0.1 }} viewport={{ once: true }} whileHover={{ y: -4, scale: 1.01 }} className="md:col-span-2 md:row-span-2 glass-panel hover-glass-panel rounded-3xl p-6 md:p-10 flex flex-col justify-between group overflow-hidden relative border border-white/10 hover:border-teal-500/50 transition-all duration-500 shadow-lg">
           <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/30 rounded-full blur-[60px] animate-pulse-slow" />
