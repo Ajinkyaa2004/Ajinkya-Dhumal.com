@@ -130,6 +130,25 @@
     ]
   }
   </script>
+
+  <!-- Self-referential SEO: rewrite the build-time ajinkyadhumal.com URLs to whatever
+       origin actually serves the site (itsajinkya.vercel.app now, the .com later) so the
+       canonical / OG image / JSON-LD all resolve, and every route is self-canonical. -->
+  <script>
+    (function () {
+      try {
+        var o = location.origin, url = o + location.pathname;
+        var canon = document.querySelector('link[rel="canonical"]');
+        if (canon) canon.setAttribute("href", url);
+        document.querySelectorAll('meta[property="og:url"], meta[name="twitter:url"]').forEach(function (m) { m.setAttribute("content", url); });
+        document.querySelectorAll('meta[property="og:image"], meta[name="twitter:image"]').forEach(function (m) {
+          m.setAttribute("content", (m.getAttribute("content") || "").replace("https://ajinkyadhumal.com", o));
+        });
+        var ld = document.querySelector('script[type="application/ld+json"]');
+        if (ld) ld.textContent = ld.textContent.split("https://ajinkyadhumal.com").join(o);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body>

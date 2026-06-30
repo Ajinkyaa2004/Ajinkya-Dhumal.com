@@ -3,7 +3,10 @@
 
 import { useEffect } from "react";
 
-const SITE = "https://ajinkyadhumal.com";
+// Self-referential: use the live origin (itsajinkya.vercel.app now, ajinkyadhumal.com
+// once deployed) so canonical / OG / image URLs always resolve to the served domain
+// instead of a domain that isn't live yet.
+const SITE = typeof window !== "undefined" ? window.location.origin : "https://ajinkyadhumal.com";
 
 const setNamed = (name, content) => {
   if (!content) return;
