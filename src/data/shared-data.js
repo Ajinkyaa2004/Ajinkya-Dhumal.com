@@ -42,7 +42,7 @@ import { DiJava } from "react-icons/di";
 export const CONTACT = {
   email: "dhumalajinkya2004@gmail.com",
   location: "Mumbai & Bangalore, India",
-  whatsapp: "https://wa.me/919999999999", // TODO: confirm real WhatsApp number for freelance CTA
+  whatsapp: "https://wa.me/919004933771?text=Hi%20Ajinkya%2C%20I%27d%20like%20to%20discuss%20a%20project.", // real number + pre-filled message for lower friction
   formspree: "https://formspree.io/f/xgvlgavv",
   github: "https://github.com/Ajinkyaa2004",
   linkedin: "https://www.linkedin.com/in/ajinkya-dhumal/",

@@ -9,6 +9,7 @@ import ClientWork from "../components/freelance/ClientWork";
 import ServicesGrid from "../components/freelance/ServicesGrid";
 import ProcessStrip from "../components/freelance/ProcessStrip";
 import TestimonialsSlider from "../components/freelance/TestimonialsSlider";
+import WhyWorkWithMe from "../components/freelance/WhyWorkWithMe";
 import SharedBottom from "../components/shared/SharedBottom";
 import { MagneticLink } from "../components/shared/AnimationUtils";
 import { CONTACT } from "../data/shared-data";
@@ -64,6 +65,7 @@ const FreelancePage = () => (
     <ClientWork />
     <ServicesGrid />
     <ProcessStrip />
+    <WhyWorkWithMe />
     <TestimonialsSlider />
     <FreelanceCTA />
     <SharedBottom />
