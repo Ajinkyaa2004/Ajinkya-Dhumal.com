@@ -41,8 +41,8 @@ const HeroHub = () => (
       <SplitHeadline
         className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.1] mt-3 max-w-2xl mx-auto"
         lines={[
-          { text: "I build products people" },
-          { text: "actually use.", gradient: "from-indigo-400 via-blue-400 to-cyan-400" },
+          { text: "I build products" },
+          { text: "people keep.", gradient: "from-indigo-400 via-blue-400 to-cyan-400" },
         ]}
       />
 

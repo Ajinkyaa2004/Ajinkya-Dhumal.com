@@ -35,7 +35,7 @@ const HomePage = () => (
   <>
     <Seo
       title="Ajinkya Dhumal — Engineer · Product · Freelance"
-      description="Ajinkya Dhumal builds products people actually use — a Full Stack Engineer, product-minded builder, and freelance web developer. Explore the engineering, product, and freelance portfolios."
+      description="Ajinkya Dhumal builds products people keep using — a Full Stack Engineer, product-minded builder, and freelance web developer. Explore the engineering, product, and freelance portfolios."
       path="/"
     />
     <HeroHub />
