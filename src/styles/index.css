@@ -171,18 +171,35 @@ html { scroll-padding-top: 5rem; }
   }
 }
 
-/* === Mobile performance: drop the GPU-expensive effects (<1024px) so phones stay buttery === */
+/* === Mobile performance: drop the GPU-expensive effects (<1024px) so phones stay buttery.
+   These three (backdrop-filter, large blur radii, blend modes) are what make a phone GPU
+   stall and flash black mid-scroll, then repaint a beat later. Desktop keeps the full look. === */
 @media (max-width: 1023px) {
-  /* backdrop-blur is the single biggest mobile cost — it re-rasterizes on every
-     scroll frame across dozens of panels. Drop it; use a more opaque bg instead. */
+  /* backdrop-blur re-rasterizes every scroll frame across dozens of panels. Drop it. */
   .glass-panel {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
     background: rgba(21, 22, 30, 0.86);
   }
-  /* Freeze the large ambient/animated blurs so they don't re-blur each frame. */
+  /* Freeze the ambient animations AND release their compositor layers — an idle
+     will-change still holds GPU memory on phones. */
   .animate-blob,
-  .animate-pulse-slow { animation: none !important; }
+  .animate-pulse-slow,
+  .animate-ping { animation: none !important; will-change: auto !important; }
+
+  /* Cap the big decorative blur orbs (blur cost scales ~radius²). 80px -> 20px is
+     ~15× cheaper to rasterize and still reads as a soft glow. This is the main fix
+     for the "everything blacks out on scroll" stall — including the 3 fixed app orbs. */
+  .blur-\[50px\],
+  .blur-\[60px\],
+  .blur-\[70px\],
+  .blur-\[80px\],
+  .blur-\[90px\] { --tw-blur: blur(20px) !important; }
+
+  /* Blend modes force an off-screen buffer that re-composites on every scroll frame.
+     The noise grain is invisible on a phone anyway — drop it entirely. */
+  .noise-texture { display: none !important; }
+  .mix-blend-overlay { mix-blend-mode: normal !important; }
 }
 
 /* Hide scrollbar (mobile horizontal process swipe container) */
