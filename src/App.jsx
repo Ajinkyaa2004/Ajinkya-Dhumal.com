@@ -28,6 +28,7 @@ const PRELOADERS = { home: loadHome, engineer: loadEngineer, pm: loadPM, freelan
 // Non-critical overlays — code-split + deferred so they don't weigh down first paint.
 const CommandPalette = lazy(() => import("./components/shared/CommandPalette"));
 const Aira = lazy(() => import("./components/shared/Aira"));
+const ConnectPage = lazy(() => import("./pages/ConnectPage"));
 
 const routeKeyFromPath = (pathname) => {
   const p = pathname.replace(/\/+$/, "") || "/";
@@ -65,7 +66,7 @@ const PageFallback = () => (
   </div>
 );
 
-export default function App() {
+function Shell() {
   const location = useLocation();
   const activeKey = routeKeyFromPath(location.pathname);
   const rootRef = useRef(null);
@@ -169,4 +170,19 @@ export default function App() {
       <Footer />
     </div>
   );
+}
+
+// /connect (NFC/QR tap page) renders standalone — no splash, navbar, orbs, or footer —
+// so it opens the instant someone taps. Every other route gets the full shell.
+export default function App() {
+  const location = useLocation();
+  const isConnect = location.pathname.replace(/\/+$/, "") === "/connect";
+  if (isConnect) {
+    return (
+      <Suspense fallback={<div className="min-h-[100dvh] bg-[#050505]" />}>
+        <ConnectPage />
+      </Suspense>
+    );
+  }
+  return <Shell />;
 }
