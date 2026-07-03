@@ -3,10 +3,10 @@
 
 import { useEffect } from "react";
 
-// Self-referential: use the live origin (itsajinkya.vercel.app now, ajinkyadhumal.com
-// once deployed) so canonical / OG / image URLs always resolve to the served domain
-// instead of a domain that isn't live yet.
-const SITE = typeof window !== "undefined" ? window.location.origin : "https://ajinkyadhumal.com";
+// ajinkyadhumal.com is live and primary — hardcode it as the single canonical base so
+// every route (and any copy served on itsajinkya.vercel.app / preview URLs) points its
+// canonical / OG / image at the real domain, consolidating all SEO signal to .com.
+const SITE = "https://ajinkyadhumal.com";
 
 const setNamed = (name, content) => {
   if (!content) return;
