@@ -227,6 +227,17 @@ html { scroll-padding-top: 5rem; }
   to { transform: translateX(-50%); }
 }
 .snapshot-marquee-track { animation: snapshot-marquee 50s linear infinite; will-change: transform; }
+
+/* === Freelance process cards: always-on "live" sparkline + pulse dot.
+   Pure transform/opacity = compositor-only, so it stays smooth on phones AND laptops
+   (no repaint, no layout). Disabled only for reduced-motion users, NOT on mobile. === */
+@keyframes card-ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.card-ticker { animation: card-ticker 9s linear infinite; will-change: transform; }
+@keyframes live-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.55); } }
+.live-dot { animation: live-pulse 1.6s ease-in-out infinite; will-change: transform, opacity; }
+@media (prefers-reduced-motion: reduce) {
+  .card-ticker, .live-dot { animation: none !important; }
+}
 .snapshot-marquee:hover .snapshot-marquee-track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
   .snapshot-marquee-track {

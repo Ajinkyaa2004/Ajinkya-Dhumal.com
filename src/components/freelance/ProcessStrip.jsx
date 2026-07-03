@@ -64,11 +64,26 @@ const ProcessStrip = () => {
                 <div className="absolute -bottom-10 -right-6 text-[12rem] text-white opacity-[0.03] group-hover:opacity-[0.06] group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 pointer-events-none z-0 leading-none">
                   <p.Icon />
                 </div>
+                {/* Always-on live "intraday" ticker — pure CSS transform, cheap on every device */}
+                <div
+                  className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-14 overflow-hidden pointer-events-none z-0 opacity-[0.55] group-hover:opacity-90 transition-opacity duration-500"
+                  style={{ maskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 12%, #000 88%, transparent)" }}
+                  aria-hidden="true"
+                >
+                  <div className="card-ticker h-full" style={{ width: "200%" }}>
+                    <svg viewBox="0 0 200 40" preserveAspectRatio="none" className="w-full h-full">
+                      <path d="M0,22 L10,14 L20,28 L30,9 L40,20 L50,13 L60,30 L70,17 L80,24 L90,11 L100,22 L110,14 L120,28 L130,9 L140,20 L150,13 L160,30 L170,17 L180,24 L190,11 L200,22" fill="none" stroke="rgb(52,211,153)" strokeOpacity="0.5" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+                    </svg>
+                  </div>
+                </div>
                 <div className="relative z-10">
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg font-extrabold shadow-lg mb-6">
                     {p.step}
                   </div>
-                  <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-emerald-300/70">Step {i + 1} of {PROCESS.length}</span>
+                  <span className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.3em] uppercase text-emerald-300/70">
+                    <span className="live-dot w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.85)]" aria-hidden="true" />
+                    Step {i + 1} of {PROCESS.length}
+                  </span>
                 </div>
                 <div className="relative z-10">
                   <h4 className="text-2xl md:text-3xl font-bold text-white mb-3">{p.title}</h4>
