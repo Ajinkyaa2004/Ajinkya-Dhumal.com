@@ -33,9 +33,10 @@ const EducationTimeline = () => {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      // Pinned horizontal scroll on ALL widths (phones included) — scroll up/down,
-      // content moves left→right. Reduced-motion users get the native swipe instead.
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // Pinned horizontal scroll on DESKTOP only — scroll up/down moves content
+      // left→right. Mobile uses a native horizontal swipe (markup below) to avoid the
+      // pin-spacer layout shift that was tanking CLS (~1.8) on phones.
+      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
         const track = trackRef.current;
         const dist = () => Math.max(0, track.scrollWidth - window.innerWidth + 80);
 
@@ -97,7 +98,7 @@ const EducationTimeline = () => {
   );
 
   return (
-    <section ref={sectionRef} id="education" aria-label="Experience and Education Timeline" className="relative z-10 motion-safe:h-screen motion-safe:flex motion-safe:flex-col motion-safe:justify-center overflow-hidden">
+    <section ref={sectionRef} id="education" aria-label="Experience and Education Timeline" className="relative z-10 lg:h-screen lg:flex lg:flex-col lg:justify-center overflow-hidden">
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-amber-600/10 rounded-full blur-[70px] pointer-events-none" />
       <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-orange-600/10 rounded-full blur-[70px] pointer-events-none" />
 
@@ -114,12 +115,12 @@ const EducationTimeline = () => {
       </div>
 
       {/* Pinned horizontal stage (all sizes via motion-safe; reduced-motion = swipe) */}
-      <div ref={stageRef} className="overflow-x-auto motion-safe:overflow-hidden no-scrollbar snap-x snap-mandatory motion-safe:snap-none">
+      <div ref={stageRef} className="overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory lg:snap-none">
         <div ref={trackRef} className="relative flex items-stretch px-6 md:px-20 lg:pr-[20vw] w-max h-[420px] sm:h-[460px]">
           {/* rail */}
           <div className="absolute left-6 right-0 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-amber-500/10 via-amber-500/50 to-amber-500/10 shadow-[0_0_12px_rgba(251,146,60,0.3)]" />
           {/* comet */}
-          <div ref={cometRef} className="absolute left-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none hidden motion-safe:block">
+          <div ref={cometRef} className="absolute left-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none hidden lg:block">
             <div className="w-4 h-4 rounded-full bg-gradient-to-br from-amber-200 via-orange-400 to-orange-500 shadow-[0_0_18px_rgba(251,146,60,0.9),0_0_40px_rgba(251,146,60,0.5)]" />
           </div>
 
@@ -147,7 +148,10 @@ const EducationTimeline = () => {
       </div>
 
       {/* subtle scroll hint */}
-      <p className="hidden motion-safe:block text-center text-[10px] font-mono tracking-[0.3em] uppercase text-white/25 mt-6">Scroll to explore →</p>
+      <p className="text-center text-[10px] font-mono tracking-[0.3em] uppercase text-white/25 mt-6">
+        <span className="lg:hidden">Swipe to explore →</span>
+        <span className="hidden lg:inline">Scroll to explore →</span>
+      </p>
     </section>
   );
 };

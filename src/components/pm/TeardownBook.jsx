@@ -31,9 +31,9 @@ const TeardownBook = () => {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      // Pinned page-slide on ALL widths (phones included) — scroll up/down, pages
-      // turn left→right. Reduced-motion users get the native swipe instead.
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // Pinned page-slide on DESKTOP only — scroll up/down, pages turn left→right.
+      // Mobile uses a native horizontal swipe to avoid the pin-spacer CLS on phones.
+      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
         const track = trackRef.current;
         const dist = () => winRef.current.offsetWidth * (PAGES - 1);
         const tween = gsap.to(track, {
@@ -59,7 +59,7 @@ const TeardownBook = () => {
   );
 
   return (
-    <section ref={sectionRef} aria-label="Product playbook" className="relative z-10 motion-safe:h-screen motion-safe:flex motion-safe:flex-col motion-safe:justify-center overflow-hidden">
+    <section ref={sectionRef} aria-label="Product playbook" className="relative z-10 lg:h-screen lg:flex lg:flex-col lg:justify-center overflow-hidden">
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-violet-600/12 rounded-full blur-[70px] pointer-events-none" />
 
       <div className="px-6 md:px-20 max-w-6xl mx-auto w-full pt-16 lg:pt-0 mb-6 lg:mb-8 relative z-10">
@@ -85,7 +85,7 @@ const TeardownBook = () => {
             {/* page window */}
             <div
               ref={winRef}
-              className="relative overflow-x-auto motion-safe:overflow-hidden snap-x snap-mandatory motion-safe:snap-none no-scrollbar rounded-[1.15rem] h-[64vh] md:h-[540px]"
+              className="relative overflow-x-auto lg:overflow-hidden snap-x snap-mandatory lg:snap-none no-scrollbar rounded-[1.15rem] h-[64vh] md:h-[540px]"
             >
               <div ref={trackRef} className="flex h-full w-full will-change-transform">
                 {/* Cover */}
@@ -100,8 +100,8 @@ const TeardownBook = () => {
                     <p className="text-white/50 text-sm md:text-base mt-5 max-w-md leading-relaxed">Strategic teardowns — the framework, the insights, and the call I'd actually make. {FEATURED_TEARDOWNS.length} featured, part of {CASE_STUDY_TOTAL} total.</p>
                     <div className="mt-8 h-px w-24 bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
                     <p className="mt-6 text-[10px] font-mono tracking-[0.3em] uppercase text-white/30">
-                      <span className="hidden motion-safe:inline">Scroll to turn the page →</span>
-                      <span className="hidden motion-reduce:inline">Swipe to turn the page →</span>
+                      <span className="hidden lg:inline">Scroll to turn the page →</span>
+                      <span className="lg:hidden">Swipe to turn the page →</span>
                     </p>
                   </div>
                 </Page>
@@ -157,7 +157,7 @@ const TeardownBook = () => {
 
           {/* progress dots + a live "keep scrolling" affordance so the pinned page-flip
               is obvious (and the user knows the site continues after the last page) */}
-          <div className="hidden motion-safe:flex flex-col items-center gap-2.5 mt-6">
+          <div className="hidden lg:flex flex-col items-center gap-2.5 mt-6">
             <div className="flex items-center gap-2">
               {Array.from({ length: PAGES }).map((_, i) => (
                 <span key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === page ? "w-7 bg-gradient-to-r from-violet-400 to-fuchsia-400" : "w-1.5 bg-white/20"}`} />
