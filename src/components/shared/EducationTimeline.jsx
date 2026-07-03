@@ -1,9 +1,10 @@
-// Experience + Education timeline — a GSAP-pinned HORIZONTAL scroller.
-// The section pins; the rail + nodes + alternating cards slide left as you
-// scroll. Each entry reveals as it crosses the viewport (GSAP containerAnimation),
-// and a comet sweeps the rail. Desktop only (gsap.matchMedia); mobile = swipe.
+// Experience + Education timeline.
+//  • Desktop (≥1024px): a GSAP-pinned HORIZONTAL scroller — scroll down, cards slide left.
+//  • Mobile: a plain VERTICAL timeline — scroll straight down. No pin / scroll-jack, so
+//    zero layout shift (CLS) and no jank on phones (just cheap opacity/transform reveals).
 
 import { useRef } from "react";
+import { motion } from "framer-motion";
 import { MdWork } from "react-icons/md";
 import { GraduationCap } from "lucide-react";
 import { SectionHeader } from "./AnimationUtils";
@@ -114,8 +115,38 @@ const EducationTimeline = () => {
         />
       </div>
 
-      {/* Pinned horizontal stage (all sizes via motion-safe; reduced-motion = swipe) */}
-      <div ref={stageRef} className="overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory lg:snap-none">
+      {/* MOBILE: vertical timeline — scroll straight down, no pin, no layout shift */}
+      <div className="lg:hidden px-6 max-w-md mx-auto w-full relative">
+        <div className="absolute left-[27px] top-1 bottom-1 w-[2px] bg-gradient-to-b from-amber-500/10 via-amber-500/45 to-amber-500/10" aria-hidden="true" />
+        <div className="space-y-5">
+          {EDUCATION.map((edu, i) => {
+            const Icon = edu.isWork ? MdWork : GraduationCap;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="relative flex gap-4 items-start"
+              >
+                <div className={`relative z-10 shrink-0 w-14 h-14 rounded-full border-2 ${edu.isWork ? "border-amber-500/60 text-amber-300" : "border-orange-500/60 text-orange-300"} bg-[#050505] flex items-center justify-center shadow-[0_0_15px_rgba(251,146,60,0.4)]`}>
+                  <Icon size={20} />
+                </div>
+                <div className="glass-panel rounded-2xl p-4 border border-white/10 flex-1 min-w-0">
+                  <span className={`font-mono text-xs ${edu.isWork ? "text-amber-400" : "text-orange-400"} font-bold tracking-wide`}>{edu.year}</span>
+                  <h4 className="text-base font-bold text-white mt-1 mb-1 leading-snug">{edu.title}</h4>
+                  <span className="text-xs text-white/70 block mb-1.5 font-medium">{edu.place}</span>
+                  <p className="text-[11px] text-white/50 leading-relaxed">{edu.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* DESKTOP: pinned horizontal stage — scroll down → cards slide left */}
+      <div ref={stageRef} className="hidden lg:block overflow-hidden">
         <div ref={trackRef} className="relative flex items-stretch px-6 md:px-20 lg:pr-[20vw] w-max h-[420px] sm:h-[460px]">
           {/* rail */}
           <div className="absolute left-6 right-0 top-1/2 -translate-y-1/2 h-[2px] bg-gradient-to-r from-amber-500/10 via-amber-500/50 to-amber-500/10 shadow-[0_0_12px_rgba(251,146,60,0.3)]" />
@@ -147,11 +178,8 @@ const EducationTimeline = () => {
         </div>
       </div>
 
-      {/* subtle scroll hint */}
-      <p className="text-center text-[10px] font-mono tracking-[0.3em] uppercase text-white/25 mt-6">
-        <span className="lg:hidden">Swipe to explore →</span>
-        <span className="hidden lg:inline">Scroll to explore →</span>
-      </p>
+      {/* subtle scroll hint (desktop only — mobile just scrolls straight down) */}
+      <p className="hidden lg:block text-center text-[10px] font-mono tracking-[0.3em] uppercase text-white/25 mt-6">Scroll to explore →</p>
     </section>
   );
 };
