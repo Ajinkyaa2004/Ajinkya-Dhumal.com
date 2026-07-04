@@ -124,7 +124,7 @@ function Shell() {
   }, [activeKey, showSplash]);
 
   return (
-    <div ref={rootRef} data-route={activeKey} className="font-sans min-h-screen relative overflow-hidden bg-[#050505] text-slate-200 selection:bg-indigo-500/30 selection:text-white">
+    <div ref={rootRef} data-route={activeKey} className="font-sans min-h-screen relative overflow-clip bg-[#050505] text-slate-200 selection:bg-indigo-500/30 selection:text-white">
       <div className="fixed inset-0 z-0 pointer-events-none opacity-20 noise-texture" />
       <Analytics />
 
