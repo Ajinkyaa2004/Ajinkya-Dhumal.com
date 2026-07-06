@@ -176,6 +176,19 @@ function Shell() {
 // so it opens the instant someone taps. Every other route gets the full shell.
 export default function App() {
   const location = useLocation();
+
+  // Deter casual right-click / long-press "save image" across the WHOLE site.
+  // (Light deterrent only — page source and devtools stay accessible.) Inputs and
+  // textareas keep their native menu so visitors can still paste in the contact form.
+  useEffect(() => {
+    const onContextMenu = (e) => {
+      if (e.target.closest?.("input, textarea, [contenteditable='true']")) return;
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", onContextMenu);
+    return () => document.removeEventListener("contextmenu", onContextMenu);
+  }, []);
+
   const isConnect = location.pathname.replace(/\/+$/, "") === "/connect";
   if (isConnect) {
     return (
