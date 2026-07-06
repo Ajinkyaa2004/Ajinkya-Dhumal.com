@@ -38,9 +38,14 @@ const SplashScreen = ({ onFinish }) => {
   }, [onFinish]);
 
   // Safety net: always finish even if the GSAP timeline never reaches its
-  // onComplete (e.g. a backgrounded tab pauses rAF). setTimeout still fires.
+  // onComplete (e.g. a backgrounded tab pauses rAF). setTimeout runs on real
+  // time, so it must sit COMFORTABLY beyond the timeline's real duration
+  // (~2.3s at 2× speed). At 2900ms it could fire mid-animation on a phone —
+  // where the app mounting underneath starves the main thread and GSAP's rAF
+  // ticks lag — cutting the splash off on the opening dot. 4200ms gives ~1.9s
+  // of slack so the animation's own onComplete always wins first.
   useEffect(() => {
-    const id = setTimeout(finish, 2900);
+    const id = setTimeout(finish, 4200);
     return () => clearTimeout(id);
   }, [finish]);
 
@@ -69,10 +74,10 @@ const SplashScreen = ({ onFinish }) => {
       gsap.set(q(".splash-tagline-text"), { clipPath: "inset(0 100% 0 0)" });
 
       let spin;
-      // Play the whole intro ~1.8× faster (~2.2s instead of ~4s) — a touch smoother
-      // than the previous 1.8s, still fast enough to keep LCP green (splash gates LCP).
+      // Play the whole intro 2× faster (~2.25s instead of ~4.5s) — snappy, premium,
+      // and fast enough to keep LCP green (the splash gates LCP).
       const tl = gsap.timeline({ onComplete: finish });
-      tl.timeScale(1.8);
+      tl.timeScale(2);
 
       // Stage 1 — dot appears + pulses
       tl.to(q(".splash-dot"), { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" })
@@ -106,7 +111,12 @@ const SplashScreen = ({ onFinish }) => {
       // Stage 5 — scale + fade out
       tl.to(root.current, { scale: 1.06, opacity: 0, duration: 0.7, ease: "power2.in", onStart: () => spin && spin.kill() }, ">0.35");
 
-      return () => split.revert();
+      // Kill the infinite spin on unmount too — if the safety net finishes the
+      // splash before Stage 5's onStart runs, the spin tween would otherwise leak.
+      return () => {
+        spin && spin.kill();
+        split.revert();
+      };
     },
     { scope: root }
   );

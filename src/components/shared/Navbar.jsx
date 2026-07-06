@@ -81,7 +81,7 @@ const Navbar = () => {
             <div className="relative">
               <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 absolute -top-1 -right-1 transition-opacity duration-300 text-blue-400" />
               <span className="text-lg sm:text-xl font-extrabold tracking-tight cursor-pointer text-white">
-                Ajinkya<span className={`text-transparent bg-clip-text bg-gradient-to-r ${accent.text}`}>.</span>
+                ajinkya<span className={`text-transparent bg-clip-text bg-gradient-to-r ${accent.text}`}>!</span>
               </span>
             </div>
           </Link>

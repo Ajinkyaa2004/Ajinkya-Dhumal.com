@@ -47,7 +47,7 @@ const HeroHub = () => (
       />
 
       <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="text-base md:text-lg text-white/60 leading-relaxed font-light max-w-xl mt-5">
-        Mumbai → Bangalore. CS (AI/ML) student, Full Stack Engineer, and product-minded builder. Pick the path that fits why you're here.
+        Full Stack Engineer with a product mind — I turn ideas into AI-driven products that ship, scale, and earn their keep. Pick the path that fits why you're here.
       </motion.p>
 
       {/* Route cards */}

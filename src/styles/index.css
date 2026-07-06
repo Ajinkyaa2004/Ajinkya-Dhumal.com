@@ -221,12 +221,10 @@ html { scroll-padding-top: 5rem; }
 .glow-amber:hover { box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.4), inset 0 0 20px -5px rgba(245, 158, 11, 0.2); }
 .glow-slate:hover { box-shadow: 0 0 40px -10px rgba(148, 163, 184, 0.4), inset 0 0 20px -5px rgba(148, 163, 184, 0.2); }
 
-/* === Professional Snapshot marquee (slow, premium drift) === */
-@keyframes snapshot-marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-.snapshot-marquee-track { animation: snapshot-marquee 50s linear infinite; will-change: transform; }
+/* === Professional Snapshot marquee ===
+   Auto-scroll is JS-driven via scrollLeft (see StatsMarquee.jsx) so the same
+   container is natively scrollable — users can swipe / drag / wheel through it
+   to fast-forward. No CSS transform animation here; it would fight scrollLeft. */
 
 /* === Freelance process cards: always-on "live" sparkline + pulse dot.
    Pure transform/opacity = compositor-only, so it stays smooth on phones AND laptops
@@ -238,10 +236,9 @@ html { scroll-padding-top: 5rem; }
 @media (prefers-reduced-motion: reduce) {
   .card-ticker, .live-dot { animation: none !important; }
 }
-.snapshot-marquee:hover .snapshot-marquee-track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
+  /* No auto-motion — lay every stat out at once, still swipeable if it overflows. */
   .snapshot-marquee-track {
-    animation: none;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;

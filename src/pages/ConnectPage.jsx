@@ -5,7 +5,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin, FaGithub, FaWhatsapp, FaEnvelope } from "react-icons/fa";
-import { Globe, FileText, Download, ArrowUpRight } from "lucide-react";
+import { Globe, FileText, Download, ArrowUpRight, Hand } from "lucide-react";
 import Seo from "../components/shared/Seo";
 import { CONTACT } from "../data/shared-data";
 import { prefersReducedMotion } from "../lib/perf";
@@ -68,7 +68,10 @@ const ConnectPage = () => {
   };
 
   return (
-    <main className="relative min-h-[100dvh] w-full bg-[#050505] text-white overflow-hidden flex justify-center">
+    <main
+      style={{ scrollbarGutter: "stable both-edges" }}
+      className="relative h-[100dvh] w-full bg-[#050505] text-white overflow-y-auto overflow-x-hidden flex justify-center"
+    >
       <Seo title="Ajinkya Dhumal — Let's connect 👋" description="Ajinkya Dhumal — Project Analyst @ Hudl, product-minded full-stack engineer. Portfolio, LinkedIn, GitHub, résumé, and save my contact — one tap." path="/connect" />
 
       {/* Accent glow — cheap radial gradient (no heavy blur), so it's fast on any phone. */}
@@ -90,7 +93,17 @@ const ConnectPage = () => {
             className="w-28 h-28 rounded-full object-cover ring-2 ring-indigo-400/50 shadow-[0_0_44px_-8px_rgba(99,102,241,0.65)]"
           />
           <h1 className="mt-5 text-[1.75rem] leading-tight font-extrabold tracking-tight">
-            Hey <span className="inline-block">👋</span> I'm Ajinkya.
+            Hey{" "}
+            <motion.span
+              className="inline-flex align-middle text-amber-300"
+              style={{ transformOrigin: "72% 82%" }}
+              animate={reduce ? undefined : { rotate: [0, 16, -8, 16, -4, 12, 0] }}
+              transition={reduce ? undefined : { duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatDelay: 1.6 }}
+              aria-hidden="true"
+            >
+              <Hand className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={2.4} />
+            </motion.span>{" "}
+            I'm ajinkya!
           </h1>
           <div className="h-6 mt-2 overflow-hidden">
             <AnimatePresence mode="wait" initial={false}>

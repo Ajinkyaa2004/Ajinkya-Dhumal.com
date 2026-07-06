@@ -1,6 +1,8 @@
 {
   "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "www.ajinkyadhumal.com" }], "destination": "https://ajinkyadhumal.com/", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "www.ajinkyadhumal.com" }], "destination": "https://ajinkyadhumal.com/:path*", "permanent": true },
+    { "source": "/", "has": [{ "type": "host", "value": "itsajinkya.vercel.app" }], "destination": "https://ajinkyadhumal.com/", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "itsajinkya.vercel.app" }], "destination": "https://ajinkyadhumal.com/:path*", "permanent": true }
   ],
   "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],

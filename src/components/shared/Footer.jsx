@@ -12,7 +12,7 @@ const Footer = () => (
       <div className="flex flex-col md:flex-row justify-between items-center gap-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center md:text-left">
           <h2 className="text-2xl font-extrabold tracking-tight mb-1">
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 text-transparent bg-clip-text">Ajinkya.</span>
+            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 text-transparent bg-clip-text">ajinkya!</span>
           </h2>
           <p className="text-sm text-white/40 font-medium">Building ideas into reality.</p>
         </motion.div>
