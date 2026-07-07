@@ -213,7 +213,11 @@ export const SplitHeadline = ({ lines, className = "", as: Tag = "h1", delay = 0
           // Move the gradient from the parent (which would paint a solid bar
           // once it no longer clips) onto each word so bg-clip-text survives.
           el.classList.remove("text-transparent", "bg-clip-text", "bg-gradient-to-r", ...grad.split(" "));
-          s.words.forEach((w) => w.classList.add("bg-gradient-to-r", "bg-clip-text", "text-transparent", ...grad.split(" ")));
+          s.words.forEach((w) => {
+            w.classList.add("bg-gradient-to-r", "bg-clip-text", "text-transparent", ...grad.split(" "));
+            // extend the clipped-background box below the baseline so descenders (g, y, p) aren't cut off
+            w.style.paddingBottom = "0.15em";
+          });
         }
         splits.push(s);
         words.push(...s.words);
@@ -232,7 +236,7 @@ export const SplitHeadline = ({ lines, className = "", as: Tag = "h1", delay = 0
           key={i}
           data-line
           data-gradient={l.gradient || undefined}
-          className={`block ${l.gradient ? `bg-gradient-to-r ${l.gradient} text-transparent bg-clip-text` : ""}`}
+          className={`block ${l.gradient ? `bg-gradient-to-r ${l.gradient} text-transparent bg-clip-text pb-[0.15em]` : ""}`}
         >
           {l.text}
         </span>
