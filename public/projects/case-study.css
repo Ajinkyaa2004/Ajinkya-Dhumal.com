@@ -1,0 +1,97 @@
+/* ============================================================
+   Premium case-study enhancements — shared across /projects/*
+   Each page defines its own accent in its inline <style>:
+     :root { --accent; --accent-2; --accent-rgb; }
+   These are parse-time authoritative. Every var() below carries
+   a sane fallback so a page that forgets still looks fine.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+::selection { background: rgba(var(--accent-rgb, 129,140,248), 0.30); color: #fff; }
+
+/* Accent scrollbar (fine pointers only) */
+@media (pointer: fine) {
+  html { scrollbar-color: rgba(var(--accent-rgb, 129,140,248), 0.4) transparent; scrollbar-width: thin; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(var(--accent-rgb, 129,140,248), 0.35); border-radius: 10px; border: 3px solid #050505; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(var(--accent-rgb, 129,140,248), 0.6); }
+}
+
+/* ---- Content link color fix (kills default blue / purple :visited) ---- */
+.container p:not(.breadcrumb) a,
+.container ul a,
+.container ol a {
+  color: var(--accent, #818cf8);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(var(--accent-rgb, 129,140,248), 0.28);
+  padding-bottom: 1px;
+  transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+}
+.container p:not(.breadcrumb) a:visited,
+.container ul a:visited,
+.container ol a:visited { color: var(--accent, #818cf8); }
+.container p:not(.breadcrumb) a:hover,
+.container ul a:hover,
+.container ol a:hover { color: #fff; border-bottom-color: var(--accent, #818cf8); }
+
+/* Keep content layers above the ambient orbs */
+.container, footer { position: relative; z-index: 1; }
+
+/* ---- Reading-progress bar ---- */
+#cs-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: linear-gradient(90deg, var(--accent, #818cf8), var(--accent-2, #a5b4fc));
+  box-shadow: 0 0 14px rgba(var(--accent-rgb, 129,140,248), 0.7);
+  z-index: 200; will-change: width;
+}
+
+/* ---- Cursor blob (desktop only; injected by JS) ---- */
+#cs-cursor {
+  position: fixed; top: 0; left: 0; width: 26px; height: 26px; border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(var(--accent-rgb, 129,140,248), 0.9), rgba(var(--accent-rgb, 129,140,248), 0) 66%);
+  pointer-events: none; z-index: 199; transform: translate(-50%, -50%);
+  mix-blend-mode: screen; opacity: 0;
+  transition: opacity .35s ease, width .22s ease, height .22s ease;
+  will-change: transform;
+}
+#cs-cursor.cs-on { opacity: 1; }
+#cs-cursor.cs-lg { width: 48px; height: 48px; }
+
+/* ---- Ambient floating orbs (desktop; injected by JS) ---- */
+.cs-orb { position: fixed; border-radius: 50%; filter: blur(72px); opacity: 0.12; pointer-events: none; z-index: 0; will-change: transform; }
+@keyframes cs-float-a { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(44px, -34px) scale(1.08); } }
+@keyframes cs-float-b { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-36px, 40px) scale(1.1); } }
+
+/* ---- Scroll word-reveal spotlight (only when JS active) ---- */
+.cs-js .reveal .cs-w { opacity: 0.24; transition: opacity .08s linear; }
+
+/* ---- Block reveal (fade-up). cs-hidden only added to below-fold blocks ---- */
+.cs-js .cs-hidden { opacity: 0; transform: translateY(22px); }
+.cs-js .cs-hidden.cs-in { opacity: 1; transform: none; transition: opacity .65s cubic-bezier(.2, .7, .2, 1), transform .65s cubic-bezier(.2, .7, .2, 1); }
+
+/* ---- Section icons on h2 ---- */
+.container h2 { display: flex; align-items: center; gap: 11px; }
+.container h2 svg.cs-ico { width: 22px; height: 22px; flex-shrink: 0; stroke: var(--accent, #818cf8); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(var(--accent-rgb, 129,140,248), 0.35)); }
+
+/* ---- Hero + typography polish ---- */
+.container h1 { text-shadow: 0 0 44px rgba(var(--accent-rgb, 129,140,248), 0.16); }
+.tag { box-shadow: 0 0 20px rgba(var(--accent-rgb, 129,140,248), 0.12); }
+
+/* ---- Tech pill hover ---- */
+.tech-pill { transition: transform .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease; }
+.tech-pill:hover { transform: translateY(-2px); border-color: rgba(var(--accent-rgb, 129,140,248), 0.5); background: rgba(var(--accent-rgb, 129,140,248), 0.09); color: #fff; }
+
+/* ---- Buttons: premium lift + glow ---- */
+.btn { transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease, border-color .2s ease; }
+.btn-primary { box-shadow: 0 6px 24px rgba(var(--accent-rgb, 129,140,248), 0.28); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(var(--accent-rgb, 129,140,248), 0.42); opacity: 1; }
+.btn-secondary:hover { transform: translateY(-2px); border-color: rgba(var(--accent-rgb, 129,140,248), 0.45); }
+
+/* Reduced motion: kill the motion, keep it readable */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cs-js .reveal .cs-w { opacity: 1 !important; transition: none; }
+  .cs-js .cs-hidden { opacity: 1; transform: none; }
+  .cs-orb, #cs-cursor { display: none; }
+}
