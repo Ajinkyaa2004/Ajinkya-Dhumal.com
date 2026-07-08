@@ -35,9 +35,9 @@ const ClientWork = () => (
               <span className="absolute top-3 right-3 text-[10px] font-mono tracking-widest uppercase text-white/90 bg-black/45 px-2.5 py-1 rounded-full backdrop-blur-sm border border-white/10">{c.tag}</span>
             </div>
             <div className="p-6">
-              <div className="flex items-center justify-between gap-3 mb-2">
+              <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3 mb-2">
                 <h4 className="text-xl font-bold text-white">{c.client}</h4>
-                <span className="text-[11px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full whitespace-nowrap">{c.outcome}</span>
+                <span className="max-w-full text-[11px] font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full whitespace-nowrap shrink-0">{c.outcome}</span>
               </div>
               <p className="text-white/55 text-sm leading-relaxed mb-4">{c.desc}</p>
               {c.demo ? (
