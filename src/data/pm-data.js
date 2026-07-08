@@ -21,7 +21,7 @@ export const CASE_STUDY_CATEGORIES = [
     glow: "glow-blue",
     chip: "bg-blue-500/10 text-blue-300 border-blue-500/30",
     studies: [
-      { company: "Netflix", monogram: "N", question: "Should Netflix double down on ad-supported plans or premium pricing?", link: "https://www.notion.so/Netflix-27e5b325b2ae80d989b1dd9d93874f3?source=copy_link" },
+      { company: "Netflix", monogram: "N", question: "Should Netflix double down on ad-supported plans or premium pricing?", link: "https://www.notion.so/Netflix-27e5b325b2ae80d989b1dd9d938748f3?source=copy_link" },
       { company: "Spotify", monogram: "S", question: "Is freemium sustainable, or should it shift to subscription-first?", link: "https://www.notion.so/Spotify-2825b325b2ae8062911ad243ebedfd28?source=copy_link" },
       { company: "Apple", monogram: "", question: "Pricing strategy for iPhone SE in emerging markets.", link: "https://www.notion.so/Apple-2845b325b2ae80e38d00fc3be08406b3?source=copy_link" },
       { company: "Amazon Prime", monogram: "aP", question: "Bundled pricing vs. standalone services.", link: "https://www.notion.so/Amazon-Prime-2a25b325b2ae80ae9080ced20733befc?source=copy_link" },
@@ -163,7 +163,7 @@ export const FEATURED_TEARDOWNS = [
     ],
     recommendation: "Run both, with clear roles: premium as the anchor and status tier, ads as the acquisition + emerging-markets growth engine. Don't discount premium to chase ad volume.",
     metric: "Blended ARPU × retention — not subscriber count alone.",
-    link: "https://www.notion.so/Netflix-27e5b325b2ae80d989b1dd9d93874f3?source=copy_link",
+    link: "https://www.notion.so/Netflix-27e5b325b2ae80d989b1dd9d938748f3?source=copy_link",
   },
   {
     company: "Spotify",
