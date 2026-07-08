@@ -4,29 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NexPrep AI — AI-Powered Mock Interview Platform | Ajinkya Dhumal</title>
-  <meta name="description" content="NexPrep AI is an AI-powered mock interview platform with voice simulation, real-time feedback, and ATS resume checker. Built with Next.js, React, and Firebase." />
+  <meta name="description" content="NexPrep AI is an AI-powered mock interview platform: voice answering with instant 1–10 scoring, structured feedback, an ATS résumé checker, and educator cohorts. Built with Next.js, MongoDB, Firebase, and Google Gemini." />
   <link rel="canonical" href="https://ajinkyadhumal.com/projects/nexprep" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ajinkyadhumal.com/projects/nexprep" />
   <meta property="og:title" content="NexPrep AI — AI-Powered Mock Interview Platform | Ajinkya Dhumal" />
-  <meta property="og:description" content="NexPrep AI is an AI-powered mock interview platform with voice simulation, real-time feedback, and ATS resume checker. Built with Next.js, React, and Firebase." />
+  <meta property="og:description" content="An AI mock-interview platform: answer aloud, get instant 1–10 scoring and structured feedback, plus an ATS résumé checker and educator cohorts. Built with Next.js, MongoDB, Firebase, and Google Gemini." />
   <meta property="og:image" content="https://ajinkyadhumal.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="NexPrep AI — AI-Powered Mock Interview Platform | Ajinkya Dhumal" />
-  <meta name="twitter:description" content="NexPrep AI is an AI-powered mock interview platform with voice simulation, real-time feedback, and ATS resume checker. Built with Next.js, React, and Firebase." />
+  <meta name="twitter:description" content="An AI mock-interview platform: answer aloud, get instant 1–10 scoring and structured feedback, plus an ATS résumé checker and educator cohorts. Built with Next.js, MongoDB, Firebase, and Google Gemini." />
   <meta name="twitter:image" content="https://ajinkyadhumal.com/og-image.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "NexPrep AI",
-    "description": "AI-powered mock interview platform with voice simulation, real-time feedback, and ATS resume checker.",
-    "url": "https://nexprep-ai.vercel.app/",
+    "description": "AI-powered mock interview platform: voice answering with instant 1–10 scoring, structured per-answer feedback, a rule-based ATS résumé checker, and educator cohorts.",
+    "url": "https://nex-prep-ai.vercel.app/",
     "author": { "@type": "Person", "@id": "https://ajinkyadhumal.com/#ajinkya", "name": "Ajinkya Dhumal", "url": "https://ajinkyadhumal.com/" },
     "applicationCategory": "WebApplication",
     "operatingSystem": "Web",
-    "programmingLanguage": ["Next.js", "React", "Firebase", "MongoDB", "Gemini AI"]
+    "programmingLanguage": ["Next.js", "React", "Firebase", "MongoDB", "Google Gemini"]
   }
   </script>
   <style>
@@ -56,6 +56,8 @@
     p { color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 12px; }
     ul { color: rgba(255,255,255,0.55); line-height: 1.75; padding-left: 20px; margin-bottom: 12px; }
     li { margin-bottom: 6px; }
+    .callout { background: rgba(59,130,246,0.06); border: 1px solid rgba(59,130,246,0.18); border-radius: 12px; padding: 16px 20px; margin: 8px 0 20px; }
+    .callout p { margin-bottom: 0; color: rgba(255,255,255,0.7); }
     footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 28px 24px; text-align: center; color: rgba(255,255,255,0.25); font-size: 13px; }
     footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
     footer a:hover { color: #fff; }
@@ -70,73 +72,84 @@
   <div class="container">
     <p class="breadcrumb"><a href="/">Home</a> / <a href="/#projects">Projects</a> / NexPrep AI</p>
 
-    <span class="tag">AI Platform</span>
+    <span class="tag">AI Platform · Case Study</span>
     <h1>NexPrep AI</h1>
-    <p class="subtitle">Mock interview platform simulating human voices with real-time feedback &amp; ATS checker.</p>
+    <p class="subtitle">An AI mock-interview platform where you answer aloud and get an instant 1–10 score with structured, honest feedback — plus an ATS résumé checker and educator cohorts.</p>
 
     <div class="tech-list">
       <span class="tech-pill">Next.js</span>
-      <span class="tech-pill">React</span>
-      <span class="tech-pill">Firebase</span>
+      <span class="tech-pill">React 19</span>
       <span class="tech-pill">MongoDB</span>
-      <span class="tech-pill">Gemini AI</span>
-      <span class="tech-pill">Web Speech API</span>
+      <span class="tech-pill">Firebase Auth</span>
+      <span class="tech-pill">Google Gemini</span>
+      <span class="tech-pill">Web Audio API</span>
     </div>
 
     <div class="cta-buttons">
-      <a href="https://nexprep-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Demo</a>
-      <a href="/#projects" class="btn btn-secondary">← All Projects</a>
+      <a href="https://nex-prep-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Demo</a>
+      <a href="https://github.com/Ajinkyaa2004/NexPrep" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Code</a>
     </div>
 
     <div class="divider"></div>
 
     <h2>Overview</h2>
-    <p>NexPrep AI is a full-stack AI-powered mock interview platform designed to help job seekers prepare for technical and behavioral interviews. The platform simulates realistic interview scenarios using voice synthesis technology, enabling candidates to practice with human-like AI interviewers that adapt to their responses in real time.</p>
-    <p>Unlike passive preparation tools, NexPrep AI creates an active, pressure-tested environment where candidates receive immediate, structured feedback on their answers — covering content quality, communication clarity, and keyword alignment with job descriptions.</p>
+    <p>NexPrep AI is a full-stack, AI-powered mock-interview platform for job seekers — especially students and early-career developers. A user spins up an interview tailored to a specific role, job description, difficulty, and interview type, answers each question <em>aloud</em> like a real interview, and gets back an instant 1–10 score with written, section-by-section feedback comparing their answer to an ideal one.</p>
+    <p>It's built as a complete product, not a demo: alongside the interview engine sit a rule-based ATS résumé checker, a résumé builder, a progress dashboard with gamification, and an educator "cohort" mode a mentor or bootcamp can deploy to a whole class.</p>
 
-    <h2>Problem It Solves</h2>
-    <p>Traditional interview preparation is passive — candidates read questions from books or watch videos, but never experience the pressure of a real conversation. This gap between preparation and reality leads to interview anxiety and poor performance even for technically strong candidates.</p>
-    <p>NexPrep AI bridges this gap by creating a live, simulated interview environment that mirrors the pacing, follow-up questions, and evaluative pressure of actual interviews. By practicing in a realistic setting, candidates build both technical confidence and communication fluency simultaneously.</p>
+    <h2>The Problem &amp; Discovery</h2>
+    <p>Job seekers have no cheap, on-demand way to actually <em>practice</em> interviews and get honest, specific feedback. Human mock interviews are scarce and awkward; generic question lists give no scoring; watching videos is passive. Strong candidates still freeze in the room because they've never rehearsed under pressure.</p>
+    <p>Before writing a line of code, I surveyed 20 job-seekers to pin down where prep actually breaks. The recurring pain wasn't "I don't know the questions" — it was "I never find out <em>why</em> my answer was weak." That insight set the product's north star: not more questions, but <strong>instant, specific, credible feedback on the answer you just gave.</strong></p>
 
     <h2>Key Features</h2>
     <ul>
-      <li>Voice-simulated AI interviews with natural conversation flow and adaptive follow-ups</li>
-      <li>Real-time feedback engine analyzing answer quality, technical accuracy, and keyword density</li>
-      <li>ATS resume checker that scores resumes against specific job descriptions</li>
-      <li>Role-specific question banks covering frontend, backend, DSA, and product management</li>
-      <li>Session recording and performance analytics dashboard tracking progress over time</li>
-      <li>Customizable difficulty levels from entry-level to senior engineering interviews</li>
+      <li><strong>AI interview generation</strong> — Google Gemini generates a categorized question set from the role, job description, years of experience, interview type (Technical / Behavioral / HR / Mixed), and difficulty. Duration maps to question count (15 min → 5 questions, 30 → 7, 45 → 9).</li>
+      <li><strong>Voice answering + AI scoring</strong> — you answer by speaking; the browser captures audio via the Web Audio API and Gemini <em>transcribes and scores it in a single call</em>, rating the answer 1–10 against the model answer. A typed fallback is fully supported when a mic isn't available.</li>
+      <li><strong>Structured per-answer feedback</strong> — every answer returns Overall Impression, Correctness vs. Expected Answer, Missing Key Concepts, and a Final Recommendation — persisted so you can review any past session.</li>
+      <li><strong>Progress dashboard + gamification</strong> — average score, questions solved, best score, and a practice streak, with an XP-level curve and unlockable badges derived from real activity.</li>
+      <li><strong>ATS résumé checker</strong> — a rule-based scorer (structure, impact, skills, style, brevity) that parses PDF/DOCX, detects missing sections, counts action verbs and quantified impact, and computes matched vs. missing keywords against a target JD.</li>
+      <li><strong>Résumé builder &amp; educator cohorts</strong> — four résumé templates with a live editor; and a cohort mode where a mentor shares an invite code and watches each student's interview count and average score.</li>
     </ul>
 
-    <h2>Tech Stack</h2>
-    <p>Built with Next.js App Router for server-side rendering and optimal performance. Firebase handles authentication and real-time data synchronization across sessions. MongoDB stores interview sessions, question banks, and user analytics with efficient query patterns. The AI layer uses Google's Gemini API for generating contextual follow-up questions and evaluating answer completeness. Web Speech API enables voice input and output directly in the browser without additional plugins.</p>
+    <h2>Product Decisions That Shaped It</h2>
+    <p>The interesting engineering here is mostly product judgement:</p>
+    <ul>
+      <li><strong>Voice-first, but graceful.</strong> Answering aloud mirrors a real interview — but mics and cameras fail, so a typed path is fully built and the UI makes clear "you can still answer." The realistic mode never becomes a blocker.</li>
+      <li><strong>Transcribe <em>and</em> evaluate in one model call.</strong> I deliberately route audio through Gemini rather than the browser's speech-to-text, because it handles accents, technical terms, and long answers far better — a real accuracy-over-simplicity trade-off.</li>
+      <li><strong>Feedback that's credible, not flattering.</strong> The scoring prompt is explicitly "strict but fair," bands the 1–10 scale, and is instructed to rate <em>only</em> what the candidate actually said — because inflated praise would defeat the entire product.</li>
+      <li><strong>Reliability as a feature.</strong> The AI layer retries with model fallbacks (gemini-2.5-flash → lite → 2.0) and surfaces an honest "AI is busy, try again"; the ATS parser always returns a result even on a parse failure. The user is never left staring at a dead screen.</li>
+      <li><strong>Cohorts as a distribution wedge.</strong> Solo practice is the core loop, but the educator mode turns NexPrep into something a bootcamp or college can adopt for a whole batch — a deliberate lever beyond the single user.</li>
+    </ul>
 
     <h2>Architecture</h2>
-    <p>NexPrep is built in clear layers so each concern can scale independently:</p>
+    <p>NexPrep is layered so each concern scales independently:</p>
     <ul>
-      <li><strong>Client (browser):</strong> a React UI on the Next.js App Router; the Web Speech API captures the candidate's spoken answers and voices the interviewer's questions.</li>
-      <li><strong>Auth &amp; sync:</strong> Firebase Authentication gates sessions and keeps interview state in sync in real time.</li>
-      <li><strong>AI layer:</strong> Google's Gemini generates role-specific questions and adaptive follow-ups, then scores each answer on relevance, structure, and keyword coverage.</li>
-      <li><strong>Data:</strong> MongoDB persists question banks, session transcripts, and the analytics behind the progress dashboard.</li>
-      <li><strong>ATS module:</strong> parses a résumé against a target job description and returns a match score with gap highlights.</li>
+      <li><strong>Client (Next.js App Router, React 19):</strong> the interview UI, webcam-on experience, Web Audio capture (record → 16 kHz WAV → server action), and a live on-screen caption via the Web Speech API.</li>
+      <li><strong>AI layer (Google Gemini):</strong> server actions call Gemini for question generation and for the combined transcribe-and-score step, with retry/backoff and multi-model fallback, JSON response mode, and the API key kept strictly server-side.</li>
+      <li><strong>Auth (Firebase):</strong> email/password + Google sign-in on the client; every server action verifies a Firebase ID token with the Admin SDK and derives identity from the <em>token</em>, never the client payload.</li>
+      <li><strong>Data (MongoDB / Mongoose):</strong> mock interviews, per-answer results, cohorts, and user profiles, with a cached connection singleton and indexes on the real query patterns.</li>
+      <li><strong>Safety rails:</strong> ownership checks on every read/write, a per-user daily AI rate limit, and a GDPR-style delete-my-data path.</li>
     </ul>
 
     <h2>My Role &amp; Engineering Highlights</h2>
     <ul>
-      <li>Scoped the product and built it end to end — frontend, data layer, AI prompts, and the in-browser voice pipeline.</li>
-      <li>Engineered Gemini prompts to return <strong>structured, rubric-based feedback</strong> instead of free-form text, so scoring stays consistent and explainable.</li>
-      <li>Designed the real-time loop — question → speech → answer → evaluation — to keep perceived latency low.</li>
-      <li>Built the ATS scorer to align résumé keywords with a job description and surface missing skills.</li>
+      <li>Scoped and built the entire product solo — frontend, data layer, AI prompt design, and the in-browser voice pipeline.</li>
+      <li>Engineered Gemini prompts to return <strong>structured, rubric-based JSON</strong> instead of free-form text, so scoring stays consistent and explainable.</li>
+      <li>Designed the low-latency loop — question → speak → transcribe + score → feedback — to feel instant.</li>
+      <li>Made identity and access <strong>secure by construction</strong>: server-side token verification, per-record ownership checks, rate limiting, and user-data deletion.</li>
     </ul>
 
+    <h2>What I'd Harden Next</h2>
+    <p>Being honest about the roadmap is part of the product thinking: expand the static question bank into a larger, tagged pool; add real PDF export to the résumé builder; layer lightweight analytics to actually measure whether practice improves scores over time; and evolve the heuristic ATS rubric toward JD-aware semantic matching.</p>
+
     <h2>Impact</h2>
-    <p>NexPrep turns passive interview prep into active, pressure-tested practice — candidates build technical confidence and communication fluency at the same time. The project demonstrates end-to-end product thinking: identifying a real user pain point, designing the architecture, shipping the implementation, and iterating from feedback — with depth in LLM integration, real-time systems, and user-centered design.</p>
+    <div class="callout"><p>NexPrep turns passive interview prep into active, pressure-tested practice with feedback you can act on — and demonstrates the full arc of product work: <strong>talk to users, find the real pain, design the system, ship it, and be honest about what's next.</strong></p></div>
+    <p>It's the most complete thing I've built alone — depth in LLM integration, a real-time voice pipeline, security-minded data access, and a genuinely user-centered core loop.</p>
 
     <h2>Explore Related Projects</h2>
     <ul>
-      <li><a href="/projects/skillquest-ifa">Skillquest IFA</a> - gamified hiring and skill evaluation platform</li>
-      <li><a href="/projects/copascore">CopaScore AI</a> - AI-assisted football analytics with live data</li>
-      <li><a href="/projects/smart-algo-trade">Smart Algo Trade</a> - algorithmic trading platform for Indian markets</li>
+      <li><a href="/projects/skillquest-ifa">Skillquest IFA</a> — gamified, cognitive-assessment hiring platform</li>
+      <li><a href="/projects/copascore">CopaScore AI</a> — AI-assisted football analytics with live data</li>
+      <li><a href="/projects/smart-algo-trade">Smart Algo Trade</a> — algorithmic trading platform for Indian markets</li>
       <li><a href="/">Return to homepage</a> and explore all portfolio sections</li>
     </ul>
   </div>

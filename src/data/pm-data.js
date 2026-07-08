@@ -236,8 +236,9 @@ export const FEATURED_TEARDOWNS = [
 ];
 
 // A real PM deliverable — a one-page PRD for NexPrep AI (a product Ajinkya
-// shipped). DRAFT grounded in real facts (20-user survey, Vapi voice, ATS
-// scoring); North Star + targets are illustrative, not live figures. Edit freely.
+// shipped). DRAFT grounded in real facts (20-user survey, Gemini voice
+// transcription + scoring, ATS scoring); North Star + targets are illustrative,
+// not live figures. Edit freely.
 export const NEXPREP_PRD = {
   product: "NexPrep AI",
   tagline: "AI mock-interview platform",
@@ -262,7 +263,7 @@ export const NEXPREP_PRD = {
     },
   ],
   features: [
-    { p: "P0", title: "Voice mock interviews", body: "Answer out loud in real time (voice via Vapi) — the rep that actually transfers to a live interview." },
+    { p: "P0", title: "Voice mock interviews", body: "Answer out loud in real time — your audio is transcribed and scored by Google Gemini in one pass — the rep that actually transfers to a live interview." },
     { p: "P0", title: "Instant structured feedback", body: "After each answer: clarity, relevance, and structure — specific, not “good job.”" },
     { p: "P1", title: "ATS resume scoring", body: "See how a resume reads to an applicant-tracking system — a strong standalone hook for acquisition." },
     { p: "P1", title: "Role & topic targeting", body: "Pick the role so questions and feedback match the job you're actually chasing." },

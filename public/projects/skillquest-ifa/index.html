@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skillquest IFA — Gamified Hiring &amp; Cognitive Skill Evaluation Platform | Ajinkya Dhumal</title>
-  <meta name="description" content="Skillquest IFA replaces traditional resumes with skill-based evaluation through gamified challenges. A hiring platform measuring cognitive and problem-solving ability." />
+  <title>Skillquest IFA — Gamified Cognitive-Assessment Hiring Platform | Ajinkya Dhumal</title>
+  <meta name="description" content="Skillquest IFA screens candidates with four timed cognitive puzzle games instead of résumés — ranking applicants on observed problem-solving, not pedigree. Built with React, TypeScript, Node/Express, and MongoDB for Insight Fusion Analytics." />
   <link rel="canonical" href="https://ajinkyadhumal.com/projects/skillquest-ifa" />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ajinkyadhumal.com/projects/skillquest-ifa" />
-  <meta property="og:title" content="Skillquest IFA — Gamified Hiring &amp; Cognitive Skill Evaluation Platform" />
-  <meta property="og:description" content="Skillquest IFA replaces traditional resumes with skill-based evaluation through gamified challenges. A hiring platform measuring cognitive and problem-solving ability." />
+  <meta property="og:title" content="Skillquest IFA — Gamified Cognitive-Assessment Hiring Platform" />
+  <meta property="og:description" content="Screens candidates with four timed cognitive puzzle games instead of résumés — ranking applicants on observed problem-solving. Built with React, TypeScript, Node/Express, and MongoDB for Insight Fusion Analytics." />
   <meta property="og:image" content="https://ajinkyadhumal.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Skillquest IFA — Gamified Hiring &amp; Evaluation Platform" />
-  <meta name="twitter:description" content="Skillquest IFA replaces traditional resumes with skill-based evaluation through gamified challenges. A hiring platform measuring cognitive and problem-solving ability." />
+  <meta name="twitter:title" content="Skillquest IFA — Gamified Cognitive-Assessment Hiring Platform" />
+  <meta name="twitter:description" content="Screens candidates with four timed cognitive puzzle games instead of résumés — ranking applicants on observed problem-solving. Built with React, TypeScript, Node/Express, and MongoDB for Insight Fusion Analytics." />
   <meta name="twitter:image" content="https://ajinkyadhumal.com/og-image.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Skillquest IFA",
-    "description": "Gamified hiring platform that evaluates candidates through cognitive challenges, replacing traditional resumes with skill-based scoring.",
+    "description": "Gamified pre-screening platform that assesses candidates with four timed cognitive puzzle games and ranks them on observed problem-solving instead of résumés.",
     "url": "https://ifa-hiring-platform.vercel.app",
     "author": { "@type": "Person", "@id": "https://ajinkyadhumal.com/#ajinkya", "name": "Ajinkya Dhumal", "url": "https://ajinkyadhumal.com/" },
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "programmingLanguage": ["Next.js", "React", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"]
+    "programmingLanguage": ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Vite"]
   }
   </script>
   <style>
@@ -56,6 +56,8 @@
     p { color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 12px; }
     ul { color: rgba(255,255,255,0.55); line-height: 1.75; padding-left: 20px; margin-bottom: 12px; }
     li { margin-bottom: 6px; }
+    .callout { background: rgba(6,182,212,0.06); border: 1px solid rgba(6,182,212,0.18); border-radius: 12px; padding: 16px 20px; margin: 8px 0 20px; }
+    .callout p { margin-bottom: 0; color: rgba(255,255,255,0.7); }
     footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 28px 24px; text-align: center; color: rgba(255,255,255,0.25); font-size: 13px; }
     footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
     footer a:hover { color: #fff; }
@@ -70,55 +72,80 @@
   <div class="container">
     <p class="breadcrumb"><a href="/">Home</a> / <a href="/#projects">Projects</a> / Skillquest IFA</p>
 
-    <span class="tag">Enterprise</span>
+    <span class="tag">Enterprise · Case Study</span>
     <h1>Skillquest IFA</h1>
-    <p class="subtitle">Gamified hiring platform evaluating real cognitive and problem-solving skills — built for Insight Fusion Analytics.</p>
+    <p class="subtitle">A gamified pre-screening platform that ranks candidates on how they actually solve problems — four timed cognitive puzzles instead of a résumé. Built for Insight Fusion Analytics.</p>
 
     <div class="tech-list">
-      <span class="tech-pill">Next.js</span>
-      <span class="tech-pill">React</span>
-      <span class="tech-pill">Tailwind CSS</span>
-      <span class="tech-pill">Node.js</span>
-      <span class="tech-pill">PostgreSQL</span>
-      <span class="tech-pill">Drizzle ORM</span>
+      <span class="tech-pill">React 18</span>
+      <span class="tech-pill">TypeScript</span>
+      <span class="tech-pill">Vite</span>
+      <span class="tech-pill">Node.js + Express</span>
+      <span class="tech-pill">MongoDB</span>
+      <span class="tech-pill">OpenAI</span>
     </div>
 
     <div class="cta-buttons">
       <a href="https://ifa-hiring-platform.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Live Platform</a>
-      <a href="/#projects" class="btn btn-secondary">← All Projects</a>
+      <a href="https://github.com/Ajinkyaa2004/IFA-Hiring-Platform" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Code</a>
     </div>
 
     <div class="divider"></div>
 
     <h2>Overview</h2>
-    <p>Skillquest IFA is a next-generation hiring platform that replaces traditional CV screening with gamified cognitive challenges and skill assessments. Built for Insight Fusion Analytics, the platform evaluates candidates on real-world problem-solving ability, analytical thinking, and domain knowledge — metrics proven to be more predictive of job performance than résumés alone.</p>
-    <p>The platform creates an objective, standardized evaluation pipeline that surfaces the best candidates regardless of educational background or presentation skills, enabling more equitable and effective hiring decisions.</p>
+    <p>Skillquest is a pre-screening assessment platform built for Insight Fusion Analytics. Instead of filtering applicants on résumés and CGPA, every candidate plays the <em>same</em> sequence of four timed puzzle games, and recruiters see a ranked dashboard of who solved the most, fastest. It's a first-round filter designed to surface how people think — not how well they wrote a CV.</p>
 
-    <h2>Problem It Solves</h2>
-    <p>Traditional hiring processes are plagued by résumé bias, inefficient screening, and poor signal quality. Hiring managers spend hours reviewing applications that look identical on paper, with no reliable way to differentiate candidates based on actual ability. Standard interviews also suffer from inconsistency and interviewer bias.</p>
-    <p>Skillquest IFA solves this by creating a data-driven, tamper-resistant evaluation pipeline that scores candidates on actual performance across standardized challenges — giving hiring managers a clear, quantitative signal for every candidate who completes the assessment.</p>
+    <h2>The Problem It Solves</h2>
+    <p>Early-stage and campus hiring leans on résumés, college names, and CGPA — weak, noisy proxies for actual problem-solving ability, and easy to inflate. The people hurt most are strong candidates without a polished résumé or a brand-name college, who get filtered out before anyone observes how they reason.</p>
+    <p>Skillquest's bet: put every applicant through identical, standardized, timed cognitive puzzles and rank them on <strong>observed performance</strong> — puzzles solved and time taken — rather than self-reported credentials. That gives recruiters a comparable, effort-based signal at the very top of the funnel, where the noise is worst.</p>
 
     <h2>Key Features</h2>
     <ul>
-      <li>Multi-stage gamified assessment pipeline with adaptive difficulty progression</li>
-      <li>Domain-specific challenge sets for analytics, technical, and business reasoning roles</li>
-      <li>Real-time scoring engine with automatic percentile ranking against all candidates</li>
-      <li>Candidate dashboard showing progress, performance breakdown, and improvement areas</li>
-      <li>Employer dashboard with side-by-side candidate comparison and scoring transparency</li>
-      <li>Automated shortlisting based on configurable scoring thresholds per role</li>
+      <li><strong>Four hand-built cognitive games</strong>, each mapped to a named skill: <em>Unblock Me</em> (spatial reasoning &amp; planning), <em>Minesweeper</em> (risk assessment &amp; deductive logic), <em>Water Capacity</em> (logical sequencing &amp; optimization), and a <em>Question quiz</em> (knowledge &amp; recall) — all real engines, including ~100 authored Water-Capacity puzzles and difficulty-tagged Unblock levels.</li>
+      <li><strong>Sequential, timed assessment</strong> — each game unlocks only after the previous is submitted, with a 5-minute timer per game and auto-submit on expiry, so every candidate faces an identical, comparable path.</li>
+      <li><strong>Anti-cheating</strong> — tab-switch and window-blur detection with a three-strike warn-then-disqualify rule and a seven-day replay lock on failed games; a low-stakes practice mode per game keeps the real attempt fair.</li>
+      <li><strong>Weighted scoring &amp; live leaderboard</strong> — a defined per-game scoring formula rolls up to a total, and a real-time leaderboard ranks completed assessments by score, tie-broken by total time.</li>
+      <li><strong>Recruiter dashboard</strong> — a candidate table with per-game drill-down (time spent, puzzles/levels completed), sortable and filterable by score, date, and role interest.</li>
+      <li><strong>AI-assisted question bank</strong> — admins upload existing PDF/DOCX/XLSX material and OpenAI extracts multiple-choice questions, with a rule-based fallback when no key is configured.</li>
     </ul>
 
-    <h2>Tech Stack</h2>
-    <p>Built with Next.js App Router for SSR and dynamic routing, ensuring fast page loads and full SEO coverage. PostgreSQL with Drizzle ORM provides type-safe, efficient data access for candidate records and assessment results with strong referential integrity. The assessment engine runs server-side to prevent client-side manipulation of answers or timing. React powers the gamified challenge interfaces with smooth transitions between question stages. Deployed on Vercel for globally distributed performance.</p>
+    <h2>Product Decisions That Shaped It</h2>
+    <ul>
+      <li><strong>Standardized, effort-visible signal over self-report.</strong> Everyone faces the same timed puzzles; the recruiter's primary sort is observed performance, which is far harder to fake than a résumé line — and each game is explicitly tied to a cognitive skill so scores mean something.</li>
+      <li><strong>Bias reduction, framed honestly.</strong> Identical tasks and a performance-ranked leaderboard reduce the weight of pedigree at the ranking step. It <em>mitigates</em> credential bias rather than eliminating it — college and CGPA are still captured and shown to recruiters as supplementary context, not hidden.</li>
+      <li><strong>Make a screening step feel worth doing.</strong> Gamified framing, progress cues, a per-game practice mode, and a seven-day retry window are all there to keep candidates engaged instead of treating assessment as a chore.</li>
+      <li><strong>Sequential gating for fairness.</strong> Locking games in order prevents cherry-picking the easiest one and enforces one consistent path for apples-to-apples comparison.</li>
+      <li><strong>AI where it saves work, not where it's load-bearing.</strong> OpenAI turns documents recruiters already have into a question bank, but the assessment itself never depends on a model call — with a graceful no-key fallback.</li>
+    </ul>
+
+    <h2>Architecture</h2>
+    <ul>
+      <li><strong>Frontend:</strong> React 18 + TypeScript on Vite, a SPA with Tailwind, Framer Motion, and Radix primitives; the four game engines are substantial hand-written implementations, not off-the-shelf widgets.</li>
+      <li><strong>Backend:</strong> Node.js + Express 5 (ES modules) in a routes → controllers → models structure, with a CORS allowlist, rate-limited upload routes, and a global error handler.</li>
+      <li><strong>Data:</strong> MongoDB Atlas via Mongoose 8 — users, profiles, assessments, and the question bank.</li>
+      <li><strong>Auth &amp; AI:</strong> Google OAuth with applicant/admin roles; OpenAI for question extraction from uploaded documents; deployed as separate frontend and backend on Vercel.</li>
+    </ul>
+
+    <h2>My Role &amp; Engineering Highlights</h2>
+    <ul>
+      <li>Built the platform end to end — four game engines, the assessment flow, the recruiter dashboard, and the Express/MongoDB backend.</li>
+      <li>Authored the puzzle content and difficulty metadata (optimal-move tagging on Unblock levels, ~100 Water-Capacity puzzles) so scores reflect genuine difficulty.</li>
+      <li>Designed the sequential-unlock + timer + anti-cheat flow to keep every candidate's attempt standardized and comparable.</li>
+      <li>Wired an AI document-to-question-bank pipeline with a rule-based fallback, so recruiters can stand up a quiz from material they already have.</li>
+    </ul>
+
+    <h2>What I'd Harden Next</h2>
+    <p>The honest engineering roadmap: move the trust boundary server-side. Scoring and the OAuth check currently run in the browser — the clear next steps are server-side score validation and server-side token verification so results can't be tampered with, plus real recruiter messaging (currently stubbed) and CSV export. Naming this openly is part of the case study: I know exactly where the product needs to mature.</p>
 
     <h2>Outcome</h2>
-    <p>Skillquest IFA is a live enterprise product used in actual hiring workflows at Insight Fusion Analytics. The project developed deep skills in building fair assessment architectures, designing tamper-proof server-side evaluation systems, and creating a user experience that motivates authentic candidate performance — all core challenges in building effective HR technology at scale.</p>
+    <div class="callout"><p>Skillquest reframes first-round hiring around a simple idea: <strong>rank people on how they solve problems, not on how they describe themselves.</strong> Building it meant designing fair assessment mechanics, four real game engines, and a recruiter workflow — the core problems of any HR-tech product.</p></div>
+    <p>Built for Insight Fusion Analytics as their gamified pre-screening platform, it's my deepest full-stack build — game logic, an Express/MongoDB backend, AI-assisted tooling, and a candidate experience designed to be fair and engaging at the top of the funnel.</p>
 
     <h2>Explore Related Projects</h2>
     <ul>
-      <li><a href="/projects/nexprep">NexPrep AI</a> - AI mock interviews and feedback engine</li>
-      <li><a href="/projects/godrej-properties">Godrej Properties Reserve</a> - enterprise conversion-focused landing platform</li>
-      <li><a href="/projects/copascore">CopaScore AI</a> - LLM-powered sports analytics experience</li>
+      <li><a href="/projects/nexprep">NexPrep AI</a> — AI mock interviews with instant scoring and feedback</li>
+      <li><a href="/projects/godrej-properties">Godrej Properties Reserve</a> — enterprise conversion-focused landing platform</li>
+      <li><a href="/projects/copascore">CopaScore AI</a> — LLM-powered sports analytics experience</li>
       <li><a href="/">Return to homepage</a> and explore complete work history</li>
     </ul>
   </div>
