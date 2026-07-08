@@ -186,7 +186,7 @@ export const FEATURED_PROJECTS = [
     tech: [{ Icon: SiNextdotjs, color: "text-white" }, { Icon: SiReact, color: "text-[#61DAFB]" }, { Icon: SiFirebase, color: "text-[#FFCA28]" }, { Icon: SiMongodb, color: "text-[#47A248]" }],
     bgIcon: FaRobot,
     caseStudy: "/projects/nexprep",
-    demo: "https://nex-prep-ai.vercel.app/auth/sign-in",
+    demo: "https://nexprepai.vercel.app/auth/sign-in",
     theme: "hover:border-blue-500/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] glow-blue",
     textGlow: "group-hover:text-blue-400",
   },

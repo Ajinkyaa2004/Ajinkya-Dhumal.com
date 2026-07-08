@@ -242,7 +242,7 @@ export const FEATURED_TEARDOWNS = [
 export const NEXPREP_PRD = {
   product: "NexPrep AI",
   tagline: "AI mock-interview platform",
-  demo: "https://nex-prep-ai.vercel.app/auth/sign-in",
+  demo: "https://nexprepai.vercel.app/auth/sign-in",
   repo: "https://github.com/Ajinkyaa2004/NexPrep",
   oneLiner:
     "Realistic, voice-based interview practice with instant, structured feedback — so candidates walk into the real thing prepared, not anxious.",

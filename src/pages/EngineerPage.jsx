@@ -50,7 +50,7 @@ const ENGINEER_JSONLD = {
   "@type": "ItemList",
   name: "Featured projects by Ajinkya Dhumal",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "NexPrep AI", url: "https://nex-prep-ai.vercel.app/" },
+    { "@type": "ListItem", position: 1, name: "NexPrep AI", url: "https://nexprepai.vercel.app/" },
     { "@type": "ListItem", position: 2, name: "CopaScore AI", url: "https://copascore-with-llm.onrender.com/" },
     { "@type": "ListItem", position: 3, name: "Skillquest IFA", url: "https://ifa-hiring-platform.vercel.app" },
     { "@type": "ListItem", position: 4, name: "Smart Algo Trade", url: "https://github.com/Ajinkyaa2004/Smart-Algo-Trading" },
