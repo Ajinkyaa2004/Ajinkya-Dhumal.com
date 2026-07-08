@@ -105,7 +105,7 @@ const ContactSection = () => {
                 </div>
                 <div className="relative z-10 min-w-0 flex-1">
                   <p className="text-xs text-white/40 uppercase tracking-wider font-semibold">Email me at</p>
-                  <p className="text-[13px] sm:text-sm md:text-base font-medium text-white break-words">{CONTACT.email}</p>
+                  <p className="text-[13px] sm:text-sm font-medium text-white whitespace-nowrap">{CONTACT.email}</p>
                 </div>
                 <button type="button" onClick={copyEmail} aria-label="Copy email" className="relative z-10 shrink-0 w-9 h-9 rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:bg-white/10 transition-colors">
                   {copied ? <MdCheck className="text-emerald-400" /> : <MdContentCopy className="text-sm" />}
