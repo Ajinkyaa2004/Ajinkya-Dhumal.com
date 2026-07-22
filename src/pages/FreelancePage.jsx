@@ -3,6 +3,7 @@
 
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaEnvelope } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
 import Seo from "../components/shared/Seo";
 import FreelanceHero from "../components/freelance/FreelanceHero";
 import ClientWork from "../components/freelance/ClientWork";
@@ -27,6 +28,9 @@ const FreelanceCTA = () => (
         <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
           <MagneticLink href={CONTACT.whatsapp} target="_blank" rel="noreferrer" aria-label="Message on WhatsApp" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-6 py-3.5 rounded-full font-bold bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all inline-flex items-center gap-2">
             <FaWhatsapp className="text-lg" /> WhatsApp Me
+          </MagneticLink>
+          <MagneticLink href={CONTACT.upwork} target="_blank" rel="noreferrer" aria-label="Hire me on Upwork" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-6 py-3.5 rounded-full font-bold border border-green-400/40 text-green-300 hover:bg-green-400/10 hover:shadow-[0_0_26px_rgba(20,168,0,0.3)] transition-all inline-flex items-center gap-2">
+            <SiUpwork className="text-lg" /> Hire me on Upwork
           </MagneticLink>
           <MagneticLink href={`mailto:${CONTACT.email}`} aria-label="Email me" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="px-6 py-3.5 rounded-full font-bold border border-white/20 text-white hover:bg-white/10 transition-colors inline-flex items-center gap-2">
             <FaEnvelope className="text-base" /> Email Me

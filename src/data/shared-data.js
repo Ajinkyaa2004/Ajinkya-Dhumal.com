@@ -13,7 +13,7 @@ import {
   FaHandsHelping,
   FaUsers,
 } from "react-icons/fa";
-import { SiCoursera, SiGoogleanalytics } from "react-icons/si";
+import { SiCoursera, SiGoogleanalytics, SiUpwork } from "react-icons/si";
 import {
   SiReact,
   SiNextdotjs,
@@ -46,6 +46,7 @@ export const CONTACT = {
   formspree: "https://formspree.io/f/xgvlgavv",
   github: "https://github.com/Ajinkyaa2004",
   linkedin: "https://www.linkedin.com/in/ajinkya-dhumal/",
+  upwork: "https://www.upwork.com/freelancers/~01fe448e7fc6529884",
   resumeEngineer: "/resume-engineer.pdf",
   resumePM: "/resume-pm.pdf",
 };
@@ -53,6 +54,7 @@ export const CONTACT = {
 export const SOCIALS = [
   { Icon: FaGithub, href: CONTACT.github, label: "GitHub Profile", hover: "hover:border-white/40 hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.15)]" },
   { Icon: FaLinkedin, href: CONTACT.linkedin, label: "LinkedIn Profile", hover: "hover:border-blue-400/40 hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)]" },
+  { Icon: SiUpwork, href: CONTACT.upwork, label: "Hire me on Upwork", hover: "hover:border-green-400/40 hover:text-green-400 hover:shadow-[0_0_15px_rgba(20,168,0,0.28)]" },
   { Icon: FaEnvelope, href: `mailto:${CONTACT.email}`, label: "Send Email", hover: "hover:border-sky-400/40 hover:text-sky-400 hover:shadow-[0_0_15px_rgba(56,189,248,0.2)]" },
 ];
 
