@@ -48,7 +48,7 @@ export const ENGINEER_HERO_STATS = [
 export const CURRENT_ROLES = [
   {
     company: "Hudl",
-    role: "Elite Project Analyst — Instat Ice Hockey",
+    role: "Elite Project Analyst, Queue — Instat Ice Hockey",
     period: "May 2026 – Present",
     tag: "Sports Analytics",
     Icon: FaHockeyPuck,
@@ -57,9 +57,9 @@ export const CURRENT_ROLES = [
     accentGrad: "from-cyan-400 to-sky-500",
     accentGlow: "bg-cyan-500/10",
     points: [
-      "Analyze & tag professional ice hockey matches, tracking 50+ performance metrics per game.",
-      "Deliver accurate event & performance data used by teams, coaches, and analysts for decisions.",
-      "Uphold strict quality and data-accuracy standards — building systems thinking for product roles.",
+      "Promoted to Hudl's Queue team via a competitive internal process — interview, training, and a final assessment.",
+      "Prep & quality-check professional ice hockey games so they're tag-ready — the upstream gate for every downstream analyst.",
+      "Operate the analysis queue across a 24/7 pipeline, with elevated admin access to Hudl's internal Queue systems.",
     ],
   },
   {
@@ -97,7 +97,7 @@ export const CURRENT_ROLES = [
 ];
 
 export const STATS = [
-  { value: "Hudl", label: "Elite Project Analyst", sub: "Instat Ice Hockey", Icon: FaHockeyPuck, accent: "from-cyan-400 to-sky-500" },
+  { value: "Hudl", label: "Elite Project Analyst, Queue", sub: "Instat Ice Hockey", Icon: FaHockeyPuck, accent: "from-cyan-400 to-sky-500" },
   { value: "IFA", label: "Full Stack Developer", sub: "AI & Analytics", Icon: FaLaptopCode, accent: "from-indigo-400 to-blue-500" },
   { value: 20, suffix: "+", label: "GitHub Repositories", Icon: FaGithub, accent: "from-slate-300 to-slate-500" },
   { value: 10, suffix: "+", label: "Projects Built", Icon: FaRocket, accent: "from-emerald-400 to-teal-500" },

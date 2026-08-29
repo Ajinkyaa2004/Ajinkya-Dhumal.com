@@ -16,7 +16,7 @@ const PROOF = [
   "AI products · 1K+ daily users",
   "50K+ records/day data pipelines",
   "16 product case studies",
-  "Elite Project Analyst @ Hudl",
+  "Elite Project Analyst, Queue @ Hudl",
 ];
 
 const WHATSAPP = `https://wa.me/919004933771?text=${encodeURIComponent("Hi Ajinkya, great connecting with you!")}`;
@@ -72,7 +72,7 @@ const ConnectPage = () => {
       style={{ scrollbarGutter: "stable both-edges" }}
       className="relative h-[100dvh] w-full bg-[#050505] text-white overflow-y-auto overflow-x-hidden flex justify-center"
     >
-      <Seo title="Ajinkya Dhumal — Let's connect 👋" description="Ajinkya Dhumal — Project Analyst @ Hudl, product-minded full-stack engineer. Portfolio, LinkedIn, GitHub, résumé, and save my contact — one tap." path="/connect" />
+      <Seo title="Ajinkya Dhumal — Let's connect 👋" description="Ajinkya Dhumal — Elite Project Analyst, Queue @ Hudl and product-minded full-stack engineer. Portfolio, LinkedIn, GitHub, résumé, and save my contact — one tap." path="/connect" />
 
       {/* Accent glow — cheap radial gradient (no heavy blur), so it's fast on any phone. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-80" style={{ background: "radial-gradient(120% 80% at 50% -10%, rgba(99,102,241,0.24), rgba(168,85,247,0.10) 42%, transparent 72%)" }} />
@@ -120,7 +120,7 @@ const ConnectPage = () => {
             </AnimatePresence>
           </div>
           <p className="mt-3 text-white/45 text-[13px] leading-relaxed">
-            Project Analyst @ Hudl · Full-Stack Engineer · heading into Product
+            Elite Project Analyst, Queue @ Hudl · Full-Stack Engineer · heading into Product
           </p>
         </motion.div>
 
